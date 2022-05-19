@@ -10,8 +10,8 @@
             VerticalOptions="Center">
 
             <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                Source="undraw_beer.png"
+                SemanticProperties.Description="Definitly not beer."
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
@@ -22,7 +22,7 @@
                 HorizontalOptions="Center" />
 
             <Label 
-                Text="Luigi is drunk again"
+                Text="Nu met added groenteshot support. You're welcome."
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
