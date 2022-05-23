@@ -2,13 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DrinkMaster.Pages.PlayerInputPage"
-             Title="PlayerInputPage">
+             xmlns:model="clr-namespace:DrinkMaster.Model"
+             xmlns:viewmodel="clr-namespace:DrinkMaster.ViewModels"
+             x:DataType="viewmodel:PlayerInputViewModel"
+             Title="Player Input">
     <VerticalStackLayout>
         <ListView ItemsSource="{Binding Players}" 
                   VerticalOptions="Center"
                   HorizontalOptions="Center">
             <ListView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="model:Player">
                     <ViewCell>
                         <Label Text="{Binding Name}" />
                     </ViewCell>
@@ -17,13 +20,15 @@
         </ListView>
         <HorizontalStackLayout HorizontalOptions="Center" 
                                VerticalOptions="End">
-            <Entry x:Name="NameEntry"
+            <Entry x:Name="PlayerInput"
                    WidthRequest="250"
-                   Placeholder="Enter text" />
+                   Placeholder="Enter name"
+                   BindingContext="{Binding PlayerName}"
+            />
             <Button x:Name="AddBtn"  WidthRequest="50"
                     FontAttributes="Bold"
                     Text="+"
-                    Clicked="AddButtonClicked"/>
+                    Command="{Binding AddPlayerCommand}"/>
 
 
         </HorizontalStackLayout>

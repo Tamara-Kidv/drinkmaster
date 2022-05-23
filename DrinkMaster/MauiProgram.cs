@@ -1,4 +1,7 @@
-﻿namespace DrinkMaster;
+﻿using DrinkMaster.Pages;
+using DrinkMaster.ViewModels;
+
+namespace DrinkMaster;
 
 public static class MauiProgram
 {
@@ -12,6 +15,9 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+
+		builder.Services.AddTransient<PlayerInputPage>();
+		builder.Services.AddTransient<PlayerInputViewModel>();
 
 		return builder.Build();
 	}
