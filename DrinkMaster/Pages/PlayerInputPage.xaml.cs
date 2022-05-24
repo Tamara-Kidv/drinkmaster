@@ -15,6 +15,11 @@ public partial class PlayerInputPage : ContentPage
         
     }
 
+    private async void goToCategories(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Categories(new ViewModels.CategoryViewModel()));
+    }
+
     public class Player
     {
         public Player(string name)

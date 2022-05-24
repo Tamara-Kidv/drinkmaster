@@ -25,7 +25,10 @@
                     Text="+"
                     Clicked="AddButtonClicked"/>
 
-
+            <Button 
+                x:Name="CategoriesBtn"
+                Text="Volgende"
+                Clicked="goToCategories"/>
         </HorizontalStackLayout>
 
     </VerticalStackLayout>
