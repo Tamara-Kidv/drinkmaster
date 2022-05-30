@@ -9,7 +9,7 @@ public partial class StartPage : ContentPage
 
 	private async void OnStartClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new PlayerInputPage(new ViewModels.PlayerInputViewModel())); //Change to your page.
+        await Navigation.PushAsync(new DifficultyPage(new ViewModels.DifficultyPageViewModel())); //Change to your page.
     }
 
 
