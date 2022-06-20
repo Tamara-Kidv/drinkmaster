@@ -8,10 +8,13 @@ namespace DrinkMaster.Model
 {
     public class Question
     {
-        public Question(String content)
+        public Question(string Question, List<Answer> Answers)
         {
-            this.Content = content;
+            Content = Question;
+            this.Answers = Answers;
         }
         public string Content { get; set; }
+        public List<Answer> Answers { get; }
+
     }
 }

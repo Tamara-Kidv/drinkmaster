@@ -45,6 +45,10 @@ public class PlayerInputViewModel : INotifyPropertyChanged
 
         NextPageCommand = new Command(async () => 
         {
+            if (Players.Count == 0)
+            {
+                return;
+            }
             Game game = new()
             {
                 Players = Players

@@ -19,6 +19,7 @@ public class CategoryViewModel
         INavigation navigation = App.Current.MainPage.Navigation;
         NextPageCommand = new Command(async () =>
         {
+            game.Categories = ChosenCategories;
             await navigation.PushAsync(new GamePage(game));
         });
         
