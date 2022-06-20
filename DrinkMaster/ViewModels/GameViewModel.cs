@@ -12,8 +12,7 @@ namespace DrinkMaster.ViewModels
         public Command AnswerCommand { get; private set; }
         public int CurrentQuestionNumber { get; private set; }
         public string CurrentPlayerName { get; private set; }
-        public string CurrentQuestion { get; private set; }
-        public List<Question> CurrentAnswers { get; private set; }
+        public Question CurrentQuestion { get; private set; }
         public GameViewModel(Game game)
         {
             INavigation navigation = App.Current.MainPage.Navigation;
@@ -23,7 +22,14 @@ namespace DrinkMaster.ViewModels
             });
             CurrentQuestionNumber = 1;
             CurrentPlayerName = "Jeffrey";
-            CurrentQuestion = "Waarom zijn bananen krom?";
+            List<Answer> answers = new()
+            {
+                new("Antwoord 1", true),
+                new("Antwoord 2", false),
+                new("Antwoord 3", false),
+                new("Antwoord 4", false)
+            };
+            CurrentQuestion = new Question("Waarom zijn bananen krom?", answers);
 
         }
 

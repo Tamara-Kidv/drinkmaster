@@ -58,6 +58,7 @@
             TextColor="black"
             FontSize="Medium"
             FontAttributes="Bold"
-            HeightRequest="50" />
+            HeightRequest="50"
+            Command="{Binding NextPageCommand}"/>
     </Grid>
 </ContentPage>

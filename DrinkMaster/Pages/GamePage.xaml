@@ -24,15 +24,24 @@
             HorizontalOptions="Center"/>
 
         <Label
-            Text="{Binding CurrentQuestion}"
+            Text="{Binding CurrentQuestion.Content }"
             SemanticProperties.HeadingLevel="Level1"
             FontSize="18"
             HorizontalOptions="Center"/>
 <!--for each answer:-->
-        <CollectionView ItemsSource="{Binding Answers}">
+        <CollectionView ItemsSource="{Binding CurrentQuestion.Answers}"
+                        HorizontalOptions="Center">
             <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Button Text="{Binding}" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:GameViewModel}}, Path=AnswerCommand}" CommandParameter="{Binding}" />
+                <DataTemplate 
+                    x:DataType="model:Answer">
+                    <Button 
+                        Text="{Binding Value}" 
+                        FontSize="21"
+                        HeightRequest="50"
+                        Margin="5"
+                        HorizontalOptions="Center"
+                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:GameViewModel}}, Path=AnswerCommand}" 
+                        CommandParameter="{Binding Value}" />
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
