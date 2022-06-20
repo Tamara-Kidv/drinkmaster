@@ -1,4 +1,5 @@
 ﻿using DrinkMaster.Model;
+using DrinkMaster.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,9 @@ namespace DrinkMaster.ViewModels
     {
         public CategoryViewModel()
         {
+            INavigation navigation = App.Current.MainPage.Navigation;
+            NexPageCommand = new Command(async () => await NavigationEventArgs.PushAsynch(new StartPage()));
+
             Categories = new List<Category>
             {
                 new Category("Dieren", "Red"),
@@ -22,5 +26,9 @@ namespace DrinkMaster.ViewModels
         }
 
         public List<Category> Categories { get; set; }
+
+        public void NextPage() {
+            
+        }
     }
 }
