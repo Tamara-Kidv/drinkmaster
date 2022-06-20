@@ -14,7 +14,7 @@ namespace DrinkMaster
 {
 	
 	
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "12.3.99.45")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "12.3.99.0")]
 	public partial class Resource
 	{
 		
@@ -7873,6 +7873,9 @@ namespace DrinkMaster
 			
 			// aapt resource value: 0x7F07009D
 			public const int tooltip_frame_light = 2131165341;
+			
+			// aapt resource value: 0x7F07009E
+			public const int undraw_beer = 2131165342;
 			
 			static Drawable()
 			{

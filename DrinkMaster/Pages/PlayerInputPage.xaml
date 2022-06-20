@@ -1,37 +1,81 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DrinkMaster;assembly=DrinkMaster"
              x:Class="DrinkMaster.Pages.PlayerInputPage"
              xmlns:model="clr-namespace:DrinkMaster.Model"
              xmlns:viewmodel="clr-namespace:DrinkMaster.ViewModels"
+             xmlns:view="clr-namespace:DrinkMaster.Views"
              x:DataType="viewmodel:PlayerInputViewModel"
              Title="Player Input">
-    <VerticalStackLayout>
-        <ListView ItemsSource="{Binding Players}" 
-                  VerticalOptions="Center"
-                  HorizontalOptions="Center">
+    <ContentPage.BindingContext>
+        <viewmodel:PlayerInputViewModel/>
+    </ContentPage.BindingContext>
+
+    <AbsoluteLayout>
+        <CollectionView ItemsSource="{Binding Players}" 
+                        AbsoluteLayout.LayoutBounds="0.5, 0, 250, 500"
+                        AbsoluteLayout.LayoutFlags="PositionProportional">
+            <CollectionView.ItemTemplate 
+                               x:DataType="model:Player">
+                <DataTemplate
+                    x:DataType="model:Player">
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label WidthRequest="250"
+                               Text="{Binding Name}" />
+                        
+                        <Button WidthRequest="50"
+                                x:Name="remPlayerBtn"
+                                FontAttributes="Bold" Text="X"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:PlayerInputViewModel}}, Path=DelPlayerCommand}"
+                                CommandParameter="{Binding Name}" />
+                    </Grid>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <!--<ListView ItemsSource="{Binding Players}" 
+                  AbsoluteLayout.LayoutBounds="0.5, 0, 250, 500"
+                  AbsoluteLayout.LayoutFlags="PositionProportional">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:Player">
                     <ViewCell>
-                        <Label Text="{Binding Name}" />
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label WidthRequest="250" Text="{Binding Name}" />
+                            <Button x:Name="remBtn" WidthRequest="50" FontAttributes="Bold" Text="X" />
+                        </HorizontalStackLayout>
+                            
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
         <HorizontalStackLayout HorizontalOptions="Center" 
-                               VerticalOptions="End">
+                AbsoluteLayout.LayoutBounds="0.5, 1, 250, 40"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
             <Entry x:Name="PlayerInput"
                    WidthRequest="250"
                    Placeholder="Enter name"
-                   BindingContext="{Binding PlayerName}"
+                   Text="{Binding PlayerName, Mode=TwoWay}"
             />
             <Button x:Name="AddBtn"  WidthRequest="50"
                     FontAttributes="Bold"
                     Text="+"
                     Command="{Binding AddPlayerCommand}"/>
+            <Button x:Name="nextBtn"  WidthRequest="50"
+                    FontAttributes="Bold"
+                    Text="->"
+                    Command="{Binding NextPageCommand}"
+                    />
 
 
         </HorizontalStackLayout>
 
-    </VerticalStackLayout>
+    </AbsoluteLayout>
 </ContentPage>
