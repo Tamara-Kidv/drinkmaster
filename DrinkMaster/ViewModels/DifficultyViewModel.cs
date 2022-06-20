@@ -31,7 +31,7 @@ public class DifficultyViewModel
                 default:
                     break;
             }
-            await navigation.PushAsync(new GamePage(game));
+            await navigation.PushAsync(new CategoryPage(game));
         });
     }
 
