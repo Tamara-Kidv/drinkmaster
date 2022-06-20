@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrinkMaster.Pages.DifficultyPage"
+             xmlns:model="clr-namespace:DrinkMaster.Model"
+             xmlns:viewmodel="clr-namespace:DrinkMaster.ViewModels"
+             x:DataType="viewmodel:DifficultyPageViewModel"
+             Title="DifficultyPage">
+
+    <ScrollView>
+        <VerticalStackLayout 
+            Spacing="25" 
+            Padding="30,0" 
+            VerticalOptions="Center">
+
+            <Image
+                Source="undraw_beer.png"
+                SemanticProperties.Description="Definitly not beer."
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+
+            <Label 
+                Text="Moeilijkheidsgraad"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Label 
+                Text="Kies hier de moeilijkheidsgraad voor de vragen."
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <Button 
+                x:Name="MakkelijkBtn"
+                Text="Makkelijk"
+                SemanticProperties.Hint="Makkelijke moeilijkheidsgraad gekozen."
+                Clicked="MakkelijkOnClicked"
+                HorizontalOptions="Center" />
+            
+            <Button 
+                x:Name="GemiddeldBtn"
+                Text="Gemiddeld"
+                SemanticProperties.Hint="Gemiddelde moeilijkheidsgraad gekozen"
+                Clicked="LastigOnClicked"
+                HorizontalOptions="Center" />
+
+            <Button 
+                x:Name="LastigdBtn"
+                Text="Lastig"
+                SemanticProperties.Hint="Lastige moeilijkheidsgraad gekozen"
+                Clicked="LastigOnClicked"
+                HorizontalOptions="Center" />
+
+            <Button 
+                x:Name="ZeerMoeilijkdBtn"
+                Text="Zeer Moeilijk"
+                SemanticProperties.Hint="Zeer Moeilijke moeilijkheidsgraad gekozen"
+                Clicked="ZeerMoeilijkOnClicked"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

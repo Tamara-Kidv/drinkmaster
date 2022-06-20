@@ -1,13 +1,15 @@
+using DrinkMaster.ViewModels;
+
 namespace DrinkMaster.Pages;
 
 public partial class PlayerInputPage : ContentPage
 {
-	public PlayerInputPage()
+	public PlayerInputPage(PlayerInputViewModel viewModel)
 	{
-		InitializeComponent();
-
-        BindingContext = new PlayerInputViewModel();
+        BindingContext = viewModel;
+        InitializeComponent();
 	}
+<<<<<<< HEAD
 
 
 	private void AddButtonClicked(object sender, EventArgs e)
@@ -42,4 +44,6 @@ public partial class PlayerInputPage : ContentPage
 
         public List<Player> Players { get; set; }
     }
+=======
+>>>>>>> main
 }

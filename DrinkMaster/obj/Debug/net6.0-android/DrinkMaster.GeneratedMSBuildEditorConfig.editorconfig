@@ -33,6 +33,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = DrinkMaster.Pages.Categori
 build_metadata.AdditionalFiles.TargetPath = Pages\CategoriesPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\CategoriesPage.xaml
 
+[C:/Users/tamar/Documents/GitHub/drinkmaster/DrinkMaster/Pages/DifficultyPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = DrinkMaster.Pages.DifficultyPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\DifficultyPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\DifficultyPage.xaml
+
 [C:/Users/tamar/Documents/GitHub/drinkmaster/DrinkMaster/Pages/PlayerInputPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DrinkMaster.Pages.PlayerInputPage.xaml
