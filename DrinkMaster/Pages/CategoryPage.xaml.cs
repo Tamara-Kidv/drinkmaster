@@ -1,11 +1,13 @@
+using DrinkMaster.Model;
 using DrinkMaster.ViewModels;
 
 namespace DrinkMaster.Pages;
 
 public partial class CategoryPage : ContentPage
 {
-	public CategoryPage(CategoryViewModel viewModel)
+	public CategoryPage(Game game)
 	{
+		CategoryViewModel viewModel = new CategoryViewModel(game);
         BindingContext = viewModel;
         InitializeComponent();
 	}

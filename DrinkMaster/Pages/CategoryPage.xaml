@@ -6,9 +6,6 @@
              xmlns:viewmodel="clr-namespace:DrinkMaster.ViewModels"
              x:DataType="viewmodel:CategoryViewModel"
              Title="Categories">
-    <ContentPage.BindingContext>
-        <viewmodel:CategoryViewModel/>
-    </ContentPage.BindingContext>
 
     <Grid ColumnDefinitions="*,auto,*"
           ColumnSpacing="5"
@@ -47,7 +44,7 @@
                             TextColor="black"
                             FontSize="Medium"
                             FontAttributes="Bold"
-                            Command="{Binding AddCategoryCommand}"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CategoryViewModel}}, Path=AddCategoryCommand}"
                             CommandParameter="{Binding Name}" />
                     </Grid>
 

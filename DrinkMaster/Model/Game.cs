@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -11,12 +12,12 @@ namespace DrinkMaster.Model
     {
         public ObservableCollection<Player> Players;
         public Difficulty Difficulty { get; set; }
-        //public ArrayList<Category> Categories;
+        public List<Category> Categories;
 
         public Game()
         {
             this.Players = new ObservableCollection<Player>();
-            //this.Categories = new ArrayList<Category>;
+            this.Categories = new List<Category>();
         }
     }
 }

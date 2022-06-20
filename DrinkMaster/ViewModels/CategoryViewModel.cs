@@ -14,10 +14,15 @@ public class CategoryViewModel
     public ICommand AddCategoryCommand { get; private set; }
     public List<Category> Categories { get; set; }
     public List<Category> ChosenCategories { get; set; }
-    public CategoryViewModel()
+    public CategoryViewModel(Game game)
     {
         INavigation navigation = App.Current.MainPage.Navigation;
-        NextPageCommand = new Command(async () => await navigation.PushAsync(new GamePage()));
+        NextPageCommand = new Command(async () =>
+        {
+            await navigation.PushAsync(new GamePage(game));
+        });
+        
+        
         AddCategoryCommand = new Command((name) =>
         {
             string categoryName = name.ToString();
