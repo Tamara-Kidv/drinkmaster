@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrinkMaster.Pages.LeaderboardPage"
+             xmlns:model="clr-namespace:DrinkMaster.Model"
+             xmlns:viewmodel="clr-namespace:DrinkMaster.ViewModels"
+             x:DataType="viewmodel:LeaderbordViewModel"
+             Title="LeaderboardPage">
+    
+    <VerticalStackLayout
+        Spacing="25" 
+        Padding="30,0" 
+        VerticalOptions="Center">
+
+        <Image
+            Source="undraw_beer.png"
+            SemanticProperties.Description="Definitly not beer."
+            HeightRequest="200"
+            HorizontalOptions="Center" />
+
+        <Label
+            Text="Leaderboard"
+            SemanticProperties.HeadingLevel="Level1"
+            FontSize="32"
+            HorizontalOptions="Center"/>
+
+        <Label
+            Text="Nummer1"
+            SemanticProperties.HeadingLevel="Level1"
+            FontSize="18"
+            HorizontalOptions="Center"/>
+
+        <Label
+            Text="Nummer2"
+            SemanticProperties.HeadingLevel="Level1"
+            FontSize="18"
+            HorizontalOptions="Center"/>
+
+        <Label
+            Text="Nummer3"
+            SemanticProperties.HeadingLevel="Level1"
+            FontSize="18"
+            HorizontalOptions="Center"/>
+
+        <Label
+            Text="Nummer4"
+            SemanticProperties.HeadingLevel="Level1"
+            FontSize="18"
+            HorizontalOptions="Center"/>
+
+        <Label
+            Text="Nummer5"
+            SemanticProperties.HeadingLevel="Level1"
+            FontSize="18"
+            HorizontalOptions="Center"/>
+
+        <Label
+            Text="Nummer6"
+            SemanticProperties.HeadingLevel="Level1"
+            FontSize="18"
+            HorizontalOptions="Center"/>
+
+    </VerticalStackLayout>
+</ContentPage>
