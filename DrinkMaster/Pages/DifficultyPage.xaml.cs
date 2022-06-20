@@ -9,7 +9,11 @@ public partial class DifficultyPage : ContentPage
 		BindingContext = viewModel;
 		InitializeComponent();
 	}
-	private async void GemiddeldOnClicked(object sender, EventArgs e)
+    private async void MakkelijkOnClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new DifficultyPage(new ViewModels.DifficultyPageViewModel())); //Change to your page.
+    }
+    private async void GemiddeldOnClicked(object sender, EventArgs e)
 	{
 		await Navigation.PushAsync(new DifficultyPage(new ViewModels.DifficultyPageViewModel())); //Change to your page.
 	}
