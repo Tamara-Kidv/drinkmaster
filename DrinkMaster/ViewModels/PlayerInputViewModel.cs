@@ -11,7 +11,6 @@ public class PlayerInputViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
     public string PlayerName { get; set; }
-    //public IObservable<string> PlayerName;
 
     public ICommand AddPlayerCommand { get; private set; }
     public ICommand DelPlayerCommand { get; private set; }
@@ -23,8 +22,12 @@ public class PlayerInputViewModel : INotifyPropertyChanged
 
         AddPlayerCommand = new Command(() =>
         {
+            if (PlayerName == null || PlayerName == "")
+            {
+                return;
+            }
             Players.Add(new Player(PlayerName));
-            PlayerName = null;
+            PlayerName = "";
 
         });
         DelPlayerCommand = new Command((Player) =>
