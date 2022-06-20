@@ -25,7 +25,8 @@
 <!--for each answer:-->
         <CollectionView ItemsSource="{Binding CurrentQuestion.Answers, Mode=TwoWay}"
                         HorizontalOptions="Center">
-            <CollectionView.ItemTemplate>
+            <CollectionView.ItemTemplate
+                x:DataType="model:Answer">
                 <DataTemplate 
                     x:DataType="model:Answer">
                     <Button 
