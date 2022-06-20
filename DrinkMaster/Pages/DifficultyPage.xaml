@@ -35,28 +35,32 @@
                 x:Name="MakkelijkBtn"
                 Text="Makkelijk"
                 SemanticProperties.Hint="Makkelijke moeilijkheidsgraad gekozen."
-                Clicked="MakkelijkOnClicked"
+                Command="{Binding SetDifficultyCommand}"
+                CommandParameter="Easy"
                 HorizontalOptions="Center" />
             
             <Button 
                 x:Name="GemiddeldBtn"
                 Text="Gemiddeld"
                 SemanticProperties.Hint="Gemiddelde moeilijkheidsgraad gekozen"
-                Clicked="LastigOnClicked"
+                Command="{Binding SetDifficultyCommand}"
+                CommandParameter="Normal"
                 HorizontalOptions="Center" />
 
             <Button 
                 x:Name="LastigdBtn"
                 Text="Lastig"
                 SemanticProperties.Hint="Lastige moeilijkheidsgraad gekozen"
-                Clicked="LastigOnClicked"
+                Command="{Binding SetDifficultyCommand}"
+                CommandParameter="Hard"
                 HorizontalOptions="Center" />
 
             <Button 
                 x:Name="ZeerMoeilijkdBtn"
                 Text="Zeer Moeilijk"
                 SemanticProperties.Hint="Zeer Moeilijke moeilijkheidsgraad gekozen"
-                Clicked="ZeerMoeilijkOnClicked"
+                Command="{Binding SetDifficultyCommand}"
+                CommandParameter="VeryHard"
                 HorizontalOptions="Center" />
 
         </VerticalStackLayout>

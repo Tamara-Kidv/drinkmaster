@@ -1,6 +1,5 @@
 using DrinkMaster.Model;
 using DrinkMaster.Pages;
-using DrinkMaster.Views;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -31,10 +30,24 @@ public class PlayerInputViewModel : INotifyPropertyChanged
         DelPlayerCommand = new Command((Player) =>
         {
             string name = Player.ToString();
-            Players.Remove(new Player(name));
+            foreach (Player player in Players)
+            {
+                if (player.Name == name)
+                {
+                    Players.Remove(player);
+                    break;
+                }
+            }
         });
 
-        NextPageCommand = new Command(async () => await navigation.PushAsync(new StartPage()));
+        NextPageCommand = new Command(async () => 
+        {
+            Game game = new()
+            {
+                Players = Players
+            };
+            await navigation.PushAsync(new DifficultyPage(game));
+        });
     }
     public void OnPropertyChanged([CallerMemberName] string name = null) =>
     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
