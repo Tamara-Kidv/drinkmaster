@@ -1,2 +1,9 @@
 DrinkMaster/.vs
 Drinkmaster/obj
+.vs/slnx.sqlite
+*.lock
+.vs/drinkmaster/v17/.suo
+*.vsidx
+.vs/VSWorkspaceState.json
+DrinkMaster/.vs/DrinkMaster/v17/.suo
+DrinkMaster/.vs/DrinkMaster/v17/.suo

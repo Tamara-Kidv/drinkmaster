@@ -13,12 +13,11 @@ namespace DrinkMaster.ViewModels
         {
             Categories = new List<Category>
             {
-                new Category("Dieren"),
-                new Category("Algemeen"),
-                new Category("Sport"),
-                new Category("Films en Series"),
-                new Category("Algemeen"),
-                new Category("Eigen Lijst"),
+                new Category("Dieren", "Red"),
+                new Category("Algemeen", "Yellow"),
+                new Category("Sport", "Green"),
+                new Category("Films en Series", "Blue"),
+                new Category("Eigen Lijst", "Purple"),
             };
         }
 
