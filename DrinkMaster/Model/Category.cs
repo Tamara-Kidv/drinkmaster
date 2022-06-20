@@ -12,15 +12,15 @@ namespace DrinkMaster.Model
         {
             this.Name = name;
             this.Colour = colour;
-            this.QuestionList = new List<Question>();
+            this.Questions = new List<Question>();
         }
         public string Name { get; set; }
         public string Colour { get; set; }
-        public List<Question> QuestionList { get; set; }
+        public List<Question> Questions { get; set; }
 
         public void AddQuestion(Question question)
         {
-            this.QuestionList.Add(question);
+            this.Questions.Add(question);
         }
     }
 }

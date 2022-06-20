@@ -9,36 +9,48 @@
     <ContentPage.BindingContext>
         <viewmodel:CategoryViewModel/>
     </ContentPage.BindingContext>
-    
+
     <Grid ColumnDefinitions="*,auto,*"
           ColumnSpacing="5"
           RowDefinitions="auto, *, auto"
-          RowSpacing="0">
+          RowSpacing="0"
+          Padding="10">
+
         <Label Grid.Column="1" 
                Grid.Row="0"
                Text="Kies Categorieën"
                VerticalOptions="Center" 
                HorizontalOptions="Center"
                FontSize="Header"/>
-        <Grid RowDefinitions="*, *, *">
-
-        </Grid>
         <CollectionView ItemsSource="{Binding Categories}"
                         Grid.Column="1"
                         Grid.Row="1">
-            <CollectionView.ItemTemplate>
+            <CollectionView.ItemTemplate
+                x:DataType="model:Category">
                 <DataTemplate x:DataType="model:Category">
-                    <Grid>
+
+
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding Colour}">
+
+                        </Label>
                         <Button 
-                            Grid.Column="1"
                             Text="{Binding Name}"
-                            BackgroundColor="Red"
+                            BackgroundColor="Purple"
                             TextColor="black"
                             FontSize="Medium"
                             FontAttributes="Bold"
-                            HeightRequest="100" />
-                        <Button/>
+                            Command="{Binding AddCategoryCommand}"
+                            CommandParameter="{Binding Name}" />
                     </Grid>
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
