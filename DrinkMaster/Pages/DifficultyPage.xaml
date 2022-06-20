@@ -37,7 +37,7 @@
                 SemanticProperties.Hint="Makkelijke moeilijkheidsgraad gekozen."
                 Clicked="MakkelijkOnClicked"
                 HorizontalOptions="Center" />
-            
+
             <Button 
                 x:Name="GemiddeldBtn"
                 Text="Gemiddeld"
