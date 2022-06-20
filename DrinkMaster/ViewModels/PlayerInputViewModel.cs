@@ -12,6 +12,7 @@ public class PlayerInputViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
     public string PlayerName { get; set; }
+    //public IObservable<string> PlayerName;
 
     public ICommand AddPlayerCommand { get; private set; }
     public ICommand DelPlayerCommand { get; private set; }
@@ -21,7 +22,12 @@ public class PlayerInputViewModel : INotifyPropertyChanged
     {
         INavigation navigation = App.Current.MainPage.Navigation;
 
-        AddPlayerCommand = new Command(() => Players.Add(new Player(PlayerName)));
+        AddPlayerCommand = new Command(() =>
+        {
+            Players.Add(new Player(PlayerName));
+            PlayerName = null;
+
+        });
         DelPlayerCommand = new Command((Player) =>
         {
             string name = Player.ToString();
