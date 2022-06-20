@@ -11,6 +11,7 @@ public class PlayerInputViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
     public string PlayerName { get; set; }
+    //public IObservable<string> PlayerName;
 
     public ICommand AddPlayerCommand { get; private set; }
     public ICommand DelPlayerCommand { get; private set; }
@@ -20,14 +21,33 @@ public class PlayerInputViewModel : INotifyPropertyChanged
     {
         INavigation navigation = App.Current.MainPage.Navigation;
 
-        AddPlayerCommand = new Command(() => Players.Add(new Player(PlayerName)));
+        AddPlayerCommand = new Command(() =>
+        {
+            Players.Add(new Player(PlayerName));
+            PlayerName = null;
+
+        });
         DelPlayerCommand = new Command((Player) =>
         {
             string name = Player.ToString();
-            Players.Remove(new Player(name));
+            foreach (Player player in Players)
+            {
+                if (player.Name == name)
+                {
+                    Players.Remove(player);
+                    break;
+                }
+            }
         });
 
-        NextPageCommand = new Command(async () => await navigation.PushAsync(new StartPage()));
+        NextPageCommand = new Command(async () => 
+        {
+            Game game = new()
+            {
+                Players = Players
+            };
+            await navigation.PushAsync(new DifficultyPage(game));
+        });
     }
     public void OnPropertyChanged([CallerMemberName] string name = null) =>
     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
