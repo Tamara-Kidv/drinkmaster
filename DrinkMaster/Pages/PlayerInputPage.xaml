@@ -5,7 +5,6 @@
              x:Class="DrinkMaster.Pages.PlayerInputPage"
              xmlns:model="clr-namespace:DrinkMaster.Model"
              xmlns:viewmodel="clr-namespace:DrinkMaster.ViewModels"
-             xmlns:view="clr-namespace:DrinkMaster.Views"
              x:DataType="viewmodel:PlayerInputViewModel"
              Title="Player Input">
     <ContentPage.BindingContext>

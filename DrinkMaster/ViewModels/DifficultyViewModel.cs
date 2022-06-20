@@ -6,9 +6,9 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace DrinkMaster.ViewModels;
-public class DifficultyPageViewModel
+public class DifficultyViewModel
 {
-    public DifficultyPageViewModel(Game game)
+    public DifficultyViewModel(Game game)
     {
         INavigation navigation = App.Current.MainPage.Navigation;
         SetDifficultyCommand = new Command(async (difficulty) =>

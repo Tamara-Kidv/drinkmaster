@@ -4,7 +4,7 @@
              x:Class="DrinkMaster.Pages.DifficultyPage"
              xmlns:model="clr-namespace:DrinkMaster.Model"
              xmlns:viewmodel="clr-namespace:DrinkMaster.ViewModels"
-             x:DataType="viewmodel:DifficultyPageViewModel"
+             x:DataType="viewmodel:DifficultyViewModel"
              Title="DifficultyPage">
 
     <ScrollView>
