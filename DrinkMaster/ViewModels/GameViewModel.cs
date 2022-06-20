@@ -13,22 +13,33 @@ namespace DrinkMaster.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public Command AnswerCommand { get; private set; }
-        //public string CurrentPlayerName { get; private set; }
         private string _CurrentPlayerName;
         public string CurrentPlayerName
         {
-        get {
-                return _CurrentPlayerName;
+            get 
+            {
+                 return _CurrentPlayerName;
             }
-        set {
+            set 
+            {
                 _CurrentPlayerName = value;
                 OnPropertyChanged(nameof(CurrentPlayerName));
             }
         }
+        private Question _CurrentQuestion;
+        public Question CurrentQuestion
+        {
+            get
+            {
+                return _CurrentQuestion;
+            }
+            set
+            {
+                _CurrentQuestion = value;
+                OnPropertyChanged(nameof(CurrentQuestion));
+            }
+        }
 
-
-
-public Question CurrentQuestion { get; private set; }
 
         public GameViewModel(Game game)
         {
@@ -77,9 +88,9 @@ public Question CurrentQuestion { get; private set; }
                 }
                 NextQuestion();
             });
-            }
-            public void OnPropertyChanged([CallerMemberName] string name = null) =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        public void OnPropertyChanged([CallerMemberName] string name = null) =>
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 
     }
 }

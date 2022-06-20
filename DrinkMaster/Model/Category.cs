@@ -16,8 +16,8 @@ namespace DrinkMaster.Model
 
             List<Answer> answers = new()
             {
-                new("4", true),
-                new("6", false),
+                new("4", false),
+                new("6", true),
                 new("8", false),
                 new("10", false)
             };
