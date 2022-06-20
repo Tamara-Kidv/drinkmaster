@@ -7,12 +7,11 @@
              x:DataType="viewmodel:CategoryViewModel"
              Title="Categories">
 
-    <Grid ColumnDefinitions="*,auto,*"
+    <Grid ColumnDefinitions="*,400,*"
           ColumnSpacing="5"
           RowDefinitions="auto, *, auto"
           RowSpacing="0"
           Padding="10">
-
         <Label Grid.Column="1" 
                Grid.Row="0"
                Text="Kies Categorieën"
@@ -25,29 +24,19 @@
             <CollectionView.ItemTemplate
                 x:DataType="model:Category">
                 <DataTemplate x:DataType="model:Category">
-
-
-                    <Grid Padding="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto" />
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <Label Text="{Binding Colour}">
-
-                        </Label>
-                        <Button 
-                            Text="{Binding Name}"
-                            BackgroundColor="Purple"
-                            TextColor="black"
-                            FontSize="Medium"
-                            FontAttributes="Bold"
-                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CategoryViewModel}}, Path=AddCategoryCommand}"
-                            CommandParameter="{Binding Name}" />
-                    </Grid>
-
+                    <Button
+                        Text="{Binding Name}"
+                        Margin="0,10,0, 10"
+                        HeightRequest="70"
+                        TextColor="White"
+                        Background="{Binding Colour, Mode=TwoWay}"
+                        WidthRequest="400"
+                        BorderWidth="5"
+                        BorderColor="white"
+                        FontSize="Medium"
+                        FontAttributes="Bold"
+                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CategoryViewModel}}, Path=AddCategoryCommand}"
+                        CommandParameter="{Binding Name}" />
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
@@ -55,10 +44,9 @@
             Grid.Row="4"
             Grid.Column="1"
             Text="Volgende"
-            TextColor="black"
-            FontSize="Medium"
+            WidthRequest="100"
             FontAttributes="Bold"
-            HeightRequest="50"
+            HeightRequest="70"
             Command="{Binding NextPageCommand}"/>
     </Grid>
 </ContentPage>

@@ -31,6 +31,15 @@ public class CategoryViewModel
             {
                 if (category.Name == categoryName)
                 {
+                    foreach (Category chosenCategory in ChosenCategories)
+                    {
+                        if (category.Name == chosenCategory.Name)
+                        {
+                            ChosenCategories.Remove(chosenCategory);
+                            break;
+                        }
+                    }
+                    category.Colour = Colors.Gray;
                     ChosenCategories.Add(category);
                     break;
                 }
@@ -39,11 +48,11 @@ public class CategoryViewModel
 
         Categories = new List<Category>
             {
-                new Category("Dieren", "Red"),
-                new Category("Algemeen", "Yellow"),
-                new Category("Sport", "Green"),
-                new Category("Films en Series", "Blue"),
-                new Category("Eigen Lijst", "Purple"),
+                new Category("Dieren", Colors.Red),
+                new Category("Algemeen", Colors.Orange),
+                new Category("Sport", Colors.Green),
+                new Category("Films en Series", Colors.Blue),
+                new Category("Eigen Lijst", Colors.Purple),
             };
         ChosenCategories = new List<Category>();
     }

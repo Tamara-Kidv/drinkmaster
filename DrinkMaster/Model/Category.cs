@@ -8,7 +8,7 @@ namespace DrinkMaster.Model
 {
     public class Category
     {
-        public Category(string name, string colour)
+        public Category(string name, Color colour)
         {
             this.Name = name;
             this.Colour = colour;
@@ -35,7 +35,7 @@ namespace DrinkMaster.Model
 
         }
         public string Name { get; set; }
-        public string Colour { get; set; }
+        public Color Colour { get; set; }
         public List<Question> Questions { get; set; }
 
         public void AddQuestion(Question question)
