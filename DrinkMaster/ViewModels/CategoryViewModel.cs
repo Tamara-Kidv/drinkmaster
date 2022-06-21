@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace DrinkMaster.ViewModels;
 public class CategoryViewModel
@@ -56,6 +57,7 @@ public class CategoryViewModel
                 new Category("Eigen Lijst", Colors.Purple),
             };
         ChosenCategories = new List<Category>();
+        //GetXml();
         //var questions = GetXml().ToString();
         //XmlDocument doc = new()
         //{
@@ -67,11 +69,30 @@ public class CategoryViewModel
 
 
     }
-    private async Task<string> GetXml()
+    private async Task<DataQuestions> GetXml()
     {
         using var stream = await FileSystem.OpenAppPackageFileAsync("questions.xml");
         using var reader = new StreamReader(stream);
-        return reader.ReadToEnd();
+        DataQuestions dataQuestions = Deserialize<DataQuestions>(reader.ReadToEnd());
+        return dataQuestions;
     }
 
+    public static T Deserialize<T>(string xmlString)
+    {
+        if (xmlString == null) return default;
+        var serializer = new XmlSerializer(typeof(T));
+        using (var reader = new StringReader(xmlString))
+        {
+            return (T)serializer.Deserialize(reader);
+        }
+    }
+
+    private class DataQuestions
+    {
+        private List<vraag> vragen { get; set; }
+        private class vraag {
+            private string tekst { get; set; }
+            private List<string> antwoorden { get; set; }
+        }
+    }
 }

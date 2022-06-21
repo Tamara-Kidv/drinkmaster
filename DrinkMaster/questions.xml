@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<vragen>
+	<vraag>
+		<tekst>Hoeveel zijdes heeft een dobbelsteen?</tekst>
+		<antwoorden>
+			<antwoord isCorrectAntwoord="true">6</antwoord>
+			<antwoord isCorrectAntwoord="">4</antwoord>
+			<antwoord isCorrectAntwoord="">8</antwoord>
+			<antwoord isCorrectAntwoord="">10</antwoord>
+		</antwoorden>
+	</vraag>
+	<vraag>
+		<tekst>Waarvoor staat de afkorting Aldi, het voordelige supermarktbedrijf?</tekst>
+		<antwoorden>
+			<antwoord isCorrectAntwoord="true">Albrecht Discount</antwoord>
+			<antwoord isCorrectAntwoord="">Altijd LaagDrempelig Inkopen</antwoord>
+			<antwoord isCorrectAntwoord="">Actie Levenslange Discount Inkopen</antwoord>
+			<antwoord isCorrectAntwoord="">Alzeit Lebensmittelen Discount Immer kaufen</antwoord>
+		</antwoorden>
+	</vraag>
+	<vraag>
+		<tekst>Hoeveel magen heeft een vogel?</tekst>
+		<antwoorden>
+			<antwoord isCorrectAntwoord="true">2</antwoord>
+			<antwoord isCorrectAntwoord="">1</antwoord>
+			<antwoord isCorrectAntwoord="">3</antwoord>
+			<antwoord isCorrectAntwoord="">4</antwoord>
+		</antwoorden>
+	</vraag>
+	<vraag>
+		<tekst>Hoeveel bulten heeft een dromedaris?</tekst>
+		<antwoorden>
+			<antwoord isCorrectAntwoord="true">1</antwoord>
+			<antwoord isCorrectAntwoord="">0</antwoord>
+			<antwoord isCorrectAntwoord="">2</antwoord>
+			<antwoord isCorrectAntwoord="">3</antwoord>
+		</antwoorden>
+	</vraag>
+	<vraag>
+		<tekst>Hoeveel poten heeft een spin?</tekst>
+		<antwoorden>
+			<antwoord isCorrectAntwoord="true">8</antwoord>
+			<antwoord isCorrectAntwoord="">4</antwoord>
+			<antwoord isCorrectAntwoord="">6</antwoord>
+			<antwoord isCorrectAntwoord="">10</antwoord>
+		</antwoorden>
+	</vraag>
+	<vraag>
+		<tekst>Hoe noem je het geluid dat een ezel maakt?</tekst>
+		<antwoorden>
+			<antwoord isCorrectAntwoord="true">Balken</antwoord>
+			<antwoord isCorrectAntwoord="">Hionken</antwoord>
+			<antwoord isCorrectAntwoord="">Hinneken</antwoord>
+			<antwoord isCorrectAntwoord="">Henniken</antwoord>
+		</antwoorden>
+	</vraag>
+	<vraag>
+		<tekst>Hoeveel harten heeft de gewone regenworm?</tekst>
+		<antwoorden>
+			<antwoord isCorrectAntwoord="true">10</antwoord>
+			<antwoord isCorrectAntwoord="">5</antwoord>
+			<antwoord isCorrectAntwoord="">8</antwoord>
+			<antwoord isCorrectAntwoord="">4</antwoord>
+		</antwoorden>
+	</vraag>
+</vragen>

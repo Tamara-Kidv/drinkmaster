@@ -10,7 +10,20 @@ namespace DrinkMaster.ViewModels;
 public class PlayerInputViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
-    public string PlayerName { get; set; }
+    //public string PlayerName { get; set; }
+    private string _PlayerName;
+    public string PlayerName
+    {
+        get
+        {
+            return _PlayerName;
+        }
+        set
+        {
+            _PlayerName = value;
+            OnPropertyChanged(nameof(PlayerName));
+        }
+    }
 
     public ICommand AddPlayerCommand { get; private set; }
     public ICommand DelPlayerCommand { get; private set; }
