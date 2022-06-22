@@ -12,7 +12,7 @@ namespace DrinkMaster.Model
     {
         public ObservableCollection<Player> Players;
         public Difficulty Difficulty { get; set; }
-        public List<Category> Categories;
+        public List<Category> Categories { get; set; }
 
         public Game()
         {

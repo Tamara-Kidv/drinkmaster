@@ -23,6 +23,10 @@ public class CategoryViewModel
         INavigation navigation = App.Current.MainPage.Navigation;
         NextPageCommand = new Command(async () =>
         {
+            if (ChosenCategories.Count == 0)
+            {
+                return;
+            }
             List<QuestionsModel> allQuestions = await LoadQuestions();
 
             // TODO: fix 3x foreach loop? mogelijk QuestionsDataModel aanpassen, zodat de rest deze classes gebruikt.
@@ -37,7 +41,7 @@ public class CategoryViewModel
                     }
                 }            
             }
-
+            //Debug.WriteLine(JsonSerializer.Serialize(ChosenCategories));
             game.Categories = ChosenCategories;
             await navigation.PushAsync(new GamePage(game));
         });
@@ -100,7 +104,6 @@ public class CategoryViewModel
         try
         {
             List<QuestionsModel> questions = JsonSerializer.Deserialize<List<QuestionsModel>>(json);
-            Debug.WriteLine(questions);
             return questions;
 
         }

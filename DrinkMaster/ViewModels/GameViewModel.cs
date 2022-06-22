@@ -1,4 +1,5 @@
 ﻿using DrinkMaster.Model;
+using DrinkMaster.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,7 +40,8 @@ namespace DrinkMaster.ViewModels
                 OnPropertyChanged(nameof(CurrentQuestion));
             }
         }
-
+        private Stack<Question> Questions { get; set; }
+        private int Count { get; set; }
 
         public GameViewModel(Game game)
         {
@@ -48,38 +50,36 @@ namespace DrinkMaster.ViewModels
             int CurrentPlayerId = 0, 
                 CurrentQuestionId = 0, 
                 CurrentCategoryId = 0;
+            Questions = getRandomQuestions();
             CurrentPlayerName = game.Players[CurrentPlayerId].Name; //TODO: players in volgorde
             CurrentQuestion = game.Categories[CurrentCategoryId].Questions[CurrentQuestionId];
 
             void NextQuestion()
             {
-                if (CurrentPlayerId+1 >= game.Players.Count)
+                Random random = new();
+                // Go to next player, and add count if all players have answered a question.
+                CurrentPlayerId++;
+                if (CurrentPlayerId >= game.Players.Count)
                 {
                     CurrentPlayerId = 0;
-                } else
-                {
-                    CurrentPlayerId++;
+                    Count++;
                 }
+                // If no more questions are left or 5 questions are asked, go to leaderboard!
+                if (Questions.Count == 0 || Count >= 5)
+                {
+                    navigation.PushAsync(new LeaderboardPage(game));
+                    return;
+                }
+                // Next question!
+                Question currentQuestion = Questions.Pop();
 
-                if (CurrentCategoryId+1 >= game.Categories.Count)
-                {
-                    CurrentCategoryId = 0;
-                } else
-                {
-                    CurrentCategoryId++;
-                }
-
-                if (CurrentQuestionId+1 >= game.Categories[CurrentCategoryId].Questions.Count)
-                {
-                    CurrentQuestionId = 0;
-                } else
-                {
-                    CurrentQuestionId++;
-                }
+                // Set values to View.
                 CurrentPlayerName = game.Players[CurrentPlayerId].Name;
-                CurrentQuestion = game.Categories[CurrentCategoryId].Questions[CurrentQuestionId];
+                CurrentQuestion = currentQuestion;
 
             }
+
+            // Check if answer is correct.
             AnswerCommand = new Command((isCorrect) =>
             {
                 if ((bool)isCorrect)
@@ -88,6 +88,24 @@ namespace DrinkMaster.ViewModels
                 }
                 NextQuestion();
             });
+
+            // Randomize questions into a stack.
+            Stack<Question> getRandomQuestions()
+            {
+                // Create list with all questions from all categories.
+                List<Question> questions = new();
+                foreach(Category category in game.Categories)
+                {
+                    foreach(Question question in category.Questions)
+                    {
+                        questions.Add(question);
+                    }
+                }
+                Random random = new();
+                List<Question> randomQuestions = questions.OrderBy(_ => random.Next()).ToList();
+                return new Stack<Question>(randomQuestions);
+
+            }
         }
         public void OnPropertyChanged([CallerMemberName] string name = null) =>
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));

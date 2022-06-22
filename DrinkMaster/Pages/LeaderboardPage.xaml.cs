@@ -1,12 +1,14 @@
+using DrinkMaster.Model;
 using DrinkMaster.ViewModels;
 
 namespace DrinkMaster.Pages;
 
 public partial class LeaderboardPage : ContentPage
 {
-	public LeaderboardPage(LeaderbordViewModel viewModel)
+	public LeaderboardPage(Game game)
 	{
-		BindingContext = viewModel;
+        LeaderboardViewModel viewModel = new();
+        BindingContext = viewModel;
 		InitializeComponent();
 	}
 
