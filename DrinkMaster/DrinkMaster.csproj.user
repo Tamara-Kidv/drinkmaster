@@ -18,6 +18,9 @@
     <MauiXaml Update="Pages\DifficultyPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Pages\GamePage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Pages\PlayerInputPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

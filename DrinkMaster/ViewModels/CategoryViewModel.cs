@@ -2,8 +2,10 @@
 using DrinkMaster.Pages;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Xml;
@@ -21,11 +23,26 @@ public class CategoryViewModel
         INavigation navigation = App.Current.MainPage.Navigation;
         NextPageCommand = new Command(async () =>
         {
+            List<QuestionsModel> allQuestions = await LoadQuestions();
+
+            // TODO: fix 3x foreach loop? mogelijk QuestionsDataModel aanpassen, zodat de rest deze classes gebruikt.
+            foreach (QuestionsModel question in allQuestions)
+            {
+                foreach(Category category in ChosenCategories)
+                {
+
+                    if (question.category == category.Name)
+                    {
+                        addQuestion(question, category);
+                    }
+                }            
+            }
+
             game.Categories = ChosenCategories;
             await navigation.PushAsync(new GamePage(game));
         });
-        
-        
+
+
         AddCategoryCommand = new Command((name) =>
         {
             string categoryName = name.ToString();
@@ -57,42 +74,42 @@ public class CategoryViewModel
                 new Category("Eigen Lijst", Colors.Purple),
             };
         ChosenCategories = new List<Category>();
-        //GetXml();
-        //var questions = GetXml().ToString();
-        //XmlDocument doc = new()
-        //{
-        //    PreserveWhitespace = true
-        //};
-        //doc.LoadXml(questions);
-
-        //XmlNode root = doc.FirstChild;
 
 
     }
-    private async Task<DataQuestions> GetXml()
-    {
-        using var stream = await FileSystem.OpenAppPackageFileAsync("questions.xml");
-        using var reader = new StreamReader(stream);
-        DataQuestions dataQuestions = Deserialize<DataQuestions>(reader.ReadToEnd());
-        return dataQuestions;
-    }
 
-    public static T Deserialize<T>(string xmlString)
+    private static void addQuestion(QuestionsModel question, Category category)
     {
-        if (xmlString == null) return default;
-        var serializer = new XmlSerializer(typeof(T));
-        using (var reader = new StringReader(xmlString))
+        List<Answer> answers = new()
+                        {
+                            new(question.correctAnswer, true)
+                        };
+        foreach (string incorrectAnswer in question.incorrectAnswers)
         {
-            return (T)serializer.Deserialize(reader);
+            Answer wrongAnswer = new(incorrectAnswer, false);
+            answers.Add(wrongAnswer);
         }
+        category.AddQuestion(new(question.question, answers));
     }
 
-    private class DataQuestions
+    private async Task<List<QuestionsModel>> LoadQuestions()
     {
-        private List<vraag> vragen { get; set; }
-        private class vraag {
-            private string tekst { get; set; }
-            private List<string> antwoorden { get; set; }
+        using var stream = await FileSystem.OpenAppPackageFileAsync("questions.json");
+        using var reader = new StreamReader(stream);
+        string json = reader.ReadToEnd();
+        try
+        {
+            List<QuestionsModel> questions = JsonSerializer.Deserialize<List<QuestionsModel>>(json);
+            Debug.WriteLine(questions);
+            return questions;
+
         }
+        catch (JsonException ex)
+        {
+            Debug.WriteLine(ex);
+        }
+        return null;
+
     }
 }
+

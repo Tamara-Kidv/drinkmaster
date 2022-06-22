@@ -1,0 +1,58 @@
+﻿[
+  {
+    "category": "Algemeen",
+    "correctAnswer": "6",
+    "incorrectAnswers": [
+        "4",
+        "8",
+        "10"
+    ],
+    "question": "Hoeveel zijdes heeft een dobbelsteen?",
+    "difficulty": "easy"
+  },
+  {
+    "category": "Algemeen",
+    "correctAnswer": "Albrecht Discount",
+    "incorrectAnswers": [
+        "Altijd LaagDrempelig Inkopen",
+        "Actie Levenslange Discount Inkopen",
+        "Alzeit Lebensmittelen Discount Immer kaufen"
+    ],
+    "question": "Waarvoor staat de afkorting Aldi, het voordelige supermarktbedrijf?",
+    "difficulty": "easy"
+  },
+  {
+    "category": "Dieren",
+    "correctAnswer": "2",
+    "incorrectAnswers": [
+        "4",
+        "3",
+        "1"
+    ],
+    "question": "Hoeveel magen heeft een vogel?",
+    "difficulty": "easy"
+  },
+  {
+    "category": "Dieren",
+    "correctAnswer": "1",
+    "incorrectAnswers": [
+        "0",
+        "2",
+        "3"
+    ],
+    "question": "Hoeveel bulten heeft een dromedaris?",
+    "difficulty": "easy"
+  },
+  {
+    "category": "Dieren",
+    "correctAnswer": "8",
+    "incorrectAnswers": [
+        "4",
+        "6",
+        "10"
+    ],
+    "question": "Hoeveel poten heeft een spin?",
+    "difficulty": "easy"
+  }
+
+]

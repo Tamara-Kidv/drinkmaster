@@ -1001,3 +1001,6 @@ C:\Users\jrroo\Documents\sites\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\
 C:\Users\jrroo\Documents\sites\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\app_shared_libraries\armeabi-v7a\libxamarin-app.so
 C:\Users\jrroo\Documents\sites\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\app_shared_libraries\arm64-v8a\libxamarin-app.so
 C:\Users\jrroo\Documents\sites\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\app_shared_libraries\x86\libxamarin-app.so
+C:\Users\jrroo\Documents\sites\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\lp\5\jl\files.cache
+C:\Users\jrroo\Documents\sites\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\lp\6\jl\files.cache
+C:\Users\jrroo\Documents\sites\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\lp\8\jl\files.cache

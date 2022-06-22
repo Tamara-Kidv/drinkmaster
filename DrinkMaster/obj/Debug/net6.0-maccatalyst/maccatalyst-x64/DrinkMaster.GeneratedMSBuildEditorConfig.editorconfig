@@ -27,17 +27,41 @@ build_metadata.AdditionalFiles.ManifestResourceName = DrinkMaster.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
+[C:/Users/jrroo/Documents/sites/drinkmaster/DrinkMaster/Pages/CategoryPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = DrinkMaster.Pages.CategoryPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\CategoryPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\CategoryPage.xaml
+
 [C:/Users/jrroo/Documents/sites/drinkmaster/DrinkMaster/Pages/DifficultyPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DrinkMaster.Pages.DifficultyPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\DifficultyPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\DifficultyPage.xaml
 
+[C:/Users/jrroo/Documents/sites/drinkmaster/DrinkMaster/Pages/GamePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = DrinkMaster.Pages.GamePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\GamePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\GamePage.xaml
+
+[C:/Users/jrroo/Documents/sites/drinkmaster/DrinkMaster/Pages/LeaderboardPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = DrinkMaster.Pages.LeaderboardPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\LeaderboardPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\LeaderboardPage.xaml
+
 [C:/Users/jrroo/Documents/sites/drinkmaster/DrinkMaster/Pages/PlayerInputPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DrinkMaster.Pages.PlayerInputPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\PlayerInputPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\PlayerInputPage.xaml
+
+[C:/Users/jrroo/Documents/sites/drinkmaster/DrinkMaster/Pages/QuestionPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = DrinkMaster.Pages.QuestionPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\QuestionPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\QuestionPage.xaml
 
 [C:/Users/jrroo/Documents/sites/drinkmaster/DrinkMaster/Pages/StartPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
