@@ -10,7 +10,6 @@ namespace DrinkMaster.ViewModels;
 public class PlayerInputViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
-    //public string PlayerName { get; set; }
     private string _PlayerName;
     public string PlayerName
     {
@@ -33,6 +32,7 @@ public class PlayerInputViewModel : INotifyPropertyChanged
     {
         INavigation navigation = App.Current.MainPage.Navigation;
 
+        // Add player to game
         AddPlayerCommand = new Command(() =>
         {
             if (PlayerName == null || PlayerName == "")
@@ -43,6 +43,7 @@ public class PlayerInputViewModel : INotifyPropertyChanged
             PlayerName = "";
 
         });
+        // Remove Player from the game
         DelPlayerCommand = new Command((Player) =>
         {
             string name = Player.ToString();
@@ -56,21 +57,25 @@ public class PlayerInputViewModel : INotifyPropertyChanged
             }
         });
 
-        NextPageCommand = new Command(async () => 
+        // Go to the next page
+        NextPageCommand = new Command(async () =>
         {
+            // Do nothing if there are no players.
             if (Players.Count == 0)
             {
                 return;
             }
+            // Create new game, and add players to game
             Game game = new()
             {
                 Players = Players
             };
+            // Navigate to the next page.
             await navigation.PushAsync(new DifficultyPage(game));
         });
     }
     public void OnPropertyChanged([CallerMemberName] string name = null) =>
     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-    
+
     public ObservableCollection<Player> Players { get; } = new();
 }

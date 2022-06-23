@@ -1,27 +1,21 @@
 ﻿using DrinkMaster.Model;
 using DrinkMaster.Pages;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DrinkMaster.ViewModels
 {
     public class GameViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public Command AnswerCommand { get; private set; }
         private string _CurrentPlayerName;
         public string CurrentPlayerName
         {
-            get 
+            get
             {
-                 return _CurrentPlayerName;
+                return _CurrentPlayerName;
             }
-            set 
+            set
             {
                 _CurrentPlayerName = value;
                 OnPropertyChanged(nameof(CurrentPlayerName));
@@ -42,13 +36,14 @@ namespace DrinkMaster.ViewModels
         }
         private Stack<Question> Questions { get; set; }
         private int Count { get; set; }
+        public Command AnswerCommand { get; }
 
         public GameViewModel(Game game)
         {
             INavigation navigation = App.Current.MainPage.Navigation;
 
-            int CurrentPlayerId = 0, 
-                CurrentQuestionId = 0, 
+            int CurrentPlayerId = 0,
+                CurrentQuestionId = 0,
                 CurrentCategoryId = 0;
             Questions = getRandomQuestions();
             CurrentPlayerName = game.Players[CurrentPlayerId].Name; //TODO: players in volgorde
@@ -56,7 +51,6 @@ namespace DrinkMaster.ViewModels
 
             void NextQuestion()
             {
-                Random random = new();
                 // Go to next player, and add count if all players have answered a question.
                 CurrentPlayerId++;
                 if (CurrentPlayerId >= game.Players.Count)
@@ -92,17 +86,21 @@ namespace DrinkMaster.ViewModels
             // Randomize questions into a stack.
             Stack<Question> getRandomQuestions()
             {
+                Random random = new();
                 // Create list with all questions from all categories.
                 List<Question> questions = new();
-                foreach(Category category in game.Categories)
+                foreach (Category category in game.Categories)
                 {
-                    foreach(Question question in category.Questions)
+                    foreach (Question question in category.Questions)
                     {
+                        // Randomize order of answers
+                        question.Answers = question.Answers.OrderBy(_ => random.Next()).ToList();
                         questions.Add(question);
                     }
                 }
-                Random random = new();
+                // Randomize question order
                 List<Question> randomQuestions = questions.OrderBy(_ => random.Next()).ToList();
+                // Convert to stack and return
                 return new Stack<Question>(randomQuestions);
 
             }

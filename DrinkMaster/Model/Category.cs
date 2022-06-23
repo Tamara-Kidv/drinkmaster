@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DrinkMaster.Model
+﻿namespace DrinkMaster.Model
 {
     public class Category
     {
@@ -13,11 +7,25 @@ namespace DrinkMaster.Model
             Name = name;
             Colour = colour;
             Questions = new List<Question>();
-
+            IsSelected = false;
         }
         public string Name { get; set; }
         public Color Colour { get; set; }
+        public Color BorderColour { get; set; }
         public List<Question> Questions { get; set; }
+
+        // Used to see visible toggle in view.
+        private bool _IsSelected;
+
+        public bool IsSelected
+        {
+            get { return _IsSelected; }
+            set { 
+                _IsSelected = value;
+                BorderColour = value ? Colors.White : Colors.Black;
+            }
+        }
+
 
         public void AddQuestion(Question question)
         {

@@ -1,52 +1,56 @@
 ﻿using DrinkMaster.Model;
 using DrinkMaster.Pages;
-using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Xml;
-using System.Xml.Serialization;
 
 namespace DrinkMaster.ViewModels;
-public class CategoryViewModel
+public class CategoryViewModel : INotifyPropertyChanged
 {
+    public event PropertyChangedEventHandler PropertyChanged;
+    public void OnPropertyChanged([CallerMemberName] string name = null) =>
+    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     public ICommand NextPageCommand { get; private set; }
     public ICommand AddCategoryCommand { get; private set; }
     public List<Category> Categories { get; set; }
     public List<Category> ChosenCategories { get; set; }
     public CategoryViewModel(Game game)
     {
+        
         INavigation navigation = App.Current.MainPage.Navigation;
+
+        // Go to next page
         NextPageCommand = new Command(async () =>
         {
+            // If no categories are selected, do nothing.
             if (ChosenCategories.Count == 0)
             {
                 return;
             }
-            List<QuestionsModel> allQuestions = await LoadQuestions();
+            // Load questions from JSON
+            List<QuestionsModel> allQuestions = await CategoryViewModel.LoadQuestions();
 
-            // TODO: fix 3x foreach loop? mogelijk QuestionsDataModel aanpassen, zodat de rest deze classes gebruikt.
+            // Import all questions of which the categories are currently selected
             foreach (QuestionsModel question in allQuestions)
             {
-                foreach(Category category in ChosenCategories)
+                foreach (Category category in ChosenCategories)
                 {
 
                     if (question.category == category.Name)
                     {
-                        addQuestion(question, category);
+                        AddQuestion(question, category);
                     }
-                }            
+                }
             }
-            //Debug.WriteLine(JsonSerializer.Serialize(ChosenCategories));
+            // Set categories in the game
             game.Categories = ChosenCategories;
+            // Navigate to the next page
             await navigation.PushAsync(new GamePage(game));
         });
 
-
+        // Toggle category selected
         AddCategoryCommand = new Command((name) =>
         {
             string categoryName = name.ToString();
@@ -54,14 +58,17 @@ public class CategoryViewModel
             {
                 if (category.Name == categoryName)
                 {
+                    category.IsSelected = true;
                     foreach (Category chosenCategory in ChosenCategories)
                     {
+                        // If already in the list, remove
                         if (category.Name == chosenCategory.Name)
                         {
                             ChosenCategories.Remove(chosenCategory);
                             break;
                         }
                     }
+                    // Set values in view
                     category.Colour = Colors.Gray;
                     ChosenCategories.Add(category);
                     break;
@@ -82,7 +89,7 @@ public class CategoryViewModel
 
     }
 
-    private static void addQuestion(QuestionsModel question, Category category)
+    private static void AddQuestion(QuestionsModel question, Category category)
     {
         List<Answer> answers = new()
                         {
@@ -96,7 +103,7 @@ public class CategoryViewModel
         category.AddQuestion(new(question.question, answers));
     }
 
-    private async Task<List<QuestionsModel>> LoadQuestions()
+    private static async Task<List<QuestionsModel>> LoadQuestions()
     {
         using var stream = await FileSystem.OpenAppPackageFileAsync("questions.json");
         using var reader = new StreamReader(stream);

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DrinkMaster.Model
+﻿namespace DrinkMaster.Model
 {
     public class Question
     {
@@ -14,7 +8,7 @@ namespace DrinkMaster.Model
             this.Answers = Answers;
         }
         public string Content { get; set; }
-        public List<Answer> Answers { get; }
+        public List<Answer> Answers { get; set; }
 
     }
 }

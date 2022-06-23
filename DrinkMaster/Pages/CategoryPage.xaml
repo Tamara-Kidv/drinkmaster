@@ -4,8 +4,15 @@
              x:Class="DrinkMaster.Pages.CategoryPage"
              xmlns:model="clr-namespace:DrinkMaster.Model"
              xmlns:viewmodel="clr-namespace:DrinkMaster.ViewModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:DataType="viewmodel:CategoryViewModel"
              Title="Categories">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:BoolToObjectConverter x:Key="BorderColourConverter" TrueObject="Colors.White" FalseObject="Black" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <Grid ColumnDefinitions="*,400,*"
           ColumnSpacing="5"
@@ -32,11 +39,16 @@
                         Background="{Binding Colour, Mode=TwoWay}"
                         WidthRequest="400"
                         BorderWidth="5"
-                        BorderColor="white"
                         FontSize="Medium"
+                        BackgroundColor="White"
+                        BorderColor="{Binding IsSelected, Converter={StaticResource BorderColourConverter}, Mode=TwoWay}"
                         FontAttributes="Bold"
                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CategoryViewModel}}, Path=AddCategoryCommand}"
-                        CommandParameter="{Binding Name}" />
+                        CommandParameter="{Binding Name}">
+
+                    </Button>
+
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

@@ -29,7 +29,7 @@
                         </Grid.ColumnDefinitions>
                         <Label WidthRequest="250"
                                Text="{Binding Name}" />
-                        
+
                         <Button WidthRequest="50"
                                 x:Name="remPlayerBtn"
                                 FontAttributes="Bold" Text="X"

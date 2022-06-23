@@ -22,7 +22,7 @@
             SemanticProperties.HeadingLevel="Level1"
             FontSize="18"
             HorizontalOptions="Center"/>
-<!--for each answer:-->
+        <!--for each answer:-->
         <CollectionView ItemsSource="{Binding CurrentQuestion.Answers, Mode=TwoWay}"
                         HorizontalOptions="Center">
             <CollectionView.ItemTemplate

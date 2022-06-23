@@ -4,61 +4,45 @@
              x:Class="DrinkMaster.Pages.LeaderboardPage"
              xmlns:model="clr-namespace:DrinkMaster.Model"
              xmlns:viewmodel="clr-namespace:DrinkMaster.ViewModels"
-             x:DataType="viewmodel:LeaderbordViewModel"
+             x:DataType="viewmodel:LeaderboardViewModel"
              Title="LeaderboardPage">
-    
+
     <VerticalStackLayout
         Spacing="25" 
         Padding="30,0" 
         VerticalOptions="Center">
 
-        <Image
-            Source="undraw_beer.png"
-            SemanticProperties.Description="Definitly not beer."
-            HeightRequest="200"
-            HorizontalOptions="Center" />
+        <!--<Grid ColumnDefinitions="*,400,*"
+          ColumnSpacing="5"
+          RowDefinitions="auto, *, auto"
+          RowSpacing="0"
+          Padding="10">
+            <Label Grid.Column="1" 
+               Grid.Row="0"
+               Text="Kies Categorieën"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center"
+               FontSize="Header"/>
+            <CollectionView ItemsSource="{Binding LeaderBoard}"
+                        Grid.Column="1"
+                        Grid.Row="1">
+                <CollectionView.ItemTemplate
+                x:DataType="model:Player">
+                    <DataTemplate x:DataType="model:Category">
 
-        <Label
-            Text="Leaderboard"
-            SemanticProperties.HeadingLevel="Level1"
-            FontSize="32"
-            HorizontalOptions="Center"/>
 
-        <Label
-            Text="Nummer1"
-            SemanticProperties.HeadingLevel="Level1"
-            FontSize="18"
-            HorizontalOptions="Center"/>
 
-        <Label
-            Text="Nummer2"
-            SemanticProperties.HeadingLevel="Level1"
-            FontSize="18"
-            HorizontalOptions="Center"/>
-
-        <Label
-            Text="Nummer3"
-            SemanticProperties.HeadingLevel="Level1"
-            FontSize="18"
-            HorizontalOptions="Center"/>
-
-        <Label
-            Text="Nummer4"
-            SemanticProperties.HeadingLevel="Level1"
-            FontSize="18"
-            HorizontalOptions="Center"/>
-
-        <Label
-            Text="Nummer5"
-            SemanticProperties.HeadingLevel="Level1"
-            FontSize="18"
-            HorizontalOptions="Center"/>
-
-        <Label
-            Text="Nummer6"
-            SemanticProperties.HeadingLevel="Level1"
-            FontSize="18"
-            HorizontalOptions="Center"/>
-
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button 
+            Grid.Row="4"
+            Grid.Column="1"
+            Text="Volgende"
+            WidthRequest="100"
+            FontAttributes="Bold"
+            HeightRequest="70"
+            Command="{Binding NextPageCommand}"/>
+        </Grid>-->
     </VerticalStackLayout>
 </ContentPage>
