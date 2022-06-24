@@ -11,6 +11,10 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <toolkit:IntToBoolConverter x:Key="TimerToBoolConverter"/>
+            <toolkit:MultiConverter x:Key="TimerInvertedBoolConverter">
+                <toolkit:IntToBoolConverter />
+                <toolkit:InvertedBoolConverter />
+            </toolkit:MultiConverter>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -52,8 +56,15 @@
         </CollectionView>
         <Label 
             Text="{Binding Timer}"
+            IsVisible="{Binding Timer, Converter={StaticResource TimerToBoolConverter}}"
             FontSize="24"
             HorizontalOptions="Center"/>
+        <Button 
+            Text="Next Question"
+            IsVisible="{Binding Timer, Converter={StaticResource TimerInvertedBoolConverter}}"
+            FontSize="24"
+            HorizontalOptions="Center"
+            Command="{Binding NextQuestionCommand}"/>
 
     </VerticalStackLayout>
 </ContentPage>

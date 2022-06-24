@@ -52,6 +52,7 @@ namespace DrinkMaster.ViewModels
         private Stack<Question> Questions { get; set; }
         private int Count { get; set; }
         public Command AnswerCommand { get; }
+        public Command NextQuestionCommand { get; }
 
         public GameViewModel(Game game)
         {
@@ -113,6 +114,9 @@ namespace DrinkMaster.ViewModels
                 }
 
                 navigation.PushAsync(new AnswerPage(CurrentQuestion.Content, CorrectAnswer, (bool)isCorrect));
+            });
+            NextQuestionCommand = new Command(() =>
+            {
                 NextQuestion();
             });
 
