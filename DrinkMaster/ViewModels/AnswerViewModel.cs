@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace DrinkMaster.ViewModels
 {
-    class AnswerViewModel
+    internal class AnswerViewModel
     {
         public string Question { get; set; }
         public string CorrectAnswer { get; set; }
@@ -23,7 +18,7 @@ namespace DrinkMaster.ViewModels
 
             NextPageCommand = new Command(async () =>
             {
-                await navigation.PopAsync();
+                _ = await navigation.PopAsync();
             });
         }
     }

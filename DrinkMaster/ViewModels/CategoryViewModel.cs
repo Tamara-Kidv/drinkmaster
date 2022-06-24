@@ -10,15 +10,18 @@ namespace DrinkMaster.ViewModels;
 public class CategoryViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
-    public void OnPropertyChanged([CallerMemberName] string name = null) =>
-    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+    public void OnPropertyChanged([CallerMemberName] string name = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+    }
+
     public ICommand NextPageCommand { get; private set; }
     public ICommand AddCategoryCommand { get; private set; }
     public List<Category> Categories { get; set; }
     public List<Category> ChosenCategories { get; set; }
     public CategoryViewModel(Game game)
     {
-        
+
         INavigation navigation = App.Current.MainPage.Navigation;
 
         // Go to next page
@@ -64,7 +67,7 @@ public class CategoryViewModel : INotifyPropertyChanged
                         // If already in the list, remove
                         if (category.Name == chosenCategory.Name)
                         {
-                            ChosenCategories.Remove(chosenCategory);
+                            _ = ChosenCategories.Remove(chosenCategory);
                             break;
                         }
                     }
@@ -105,8 +108,8 @@ public class CategoryViewModel : INotifyPropertyChanged
 
     private static async Task<List<QuestionsModel>> LoadQuestions()
     {
-        using var stream = await FileSystem.OpenAppPackageFileAsync("questions.json");
-        using var reader = new StreamReader(stream);
+        using Stream stream = await FileSystem.OpenAppPackageFileAsync("questions.json");
+        using StreamReader reader = new(stream);
         string json = reader.ReadToEnd();
         try
         {

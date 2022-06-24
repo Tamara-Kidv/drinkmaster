@@ -13,10 +13,7 @@ public class PlayerInputViewModel : INotifyPropertyChanged
     private string _PlayerName;
     public string PlayerName
     {
-        get
-        {
-            return _PlayerName;
-        }
+        get => _PlayerName;
         set
         {
             _PlayerName = value;
@@ -35,7 +32,7 @@ public class PlayerInputViewModel : INotifyPropertyChanged
         // Add player to game
         AddPlayerCommand = new Command(() =>
         {
-            if (PlayerName == null || PlayerName == "")
+            if (PlayerName is null or "")
             {
                 return;
             }
@@ -51,7 +48,7 @@ public class PlayerInputViewModel : INotifyPropertyChanged
             {
                 if (player.Name == name)
                 {
-                    Players.Remove(player);
+                    _ = Players.Remove(player);
                     break;
                 }
             }
@@ -74,8 +71,10 @@ public class PlayerInputViewModel : INotifyPropertyChanged
             await navigation.PushAsync(new DifficultyPage(game));
         });
     }
-    public void OnPropertyChanged([CallerMemberName] string name = null) =>
-    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+    public void OnPropertyChanged([CallerMemberName] string name = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+    }
 
     public ObservableCollection<Player> Players { get; } = new();
 }

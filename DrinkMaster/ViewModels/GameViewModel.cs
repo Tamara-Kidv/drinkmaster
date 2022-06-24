@@ -12,10 +12,7 @@ namespace DrinkMaster.ViewModels
         private string _CurrentPlayerName;
         public string CurrentPlayerName
         {
-            get
-            {
-                return _CurrentPlayerName;
-            }
+            get => _CurrentPlayerName;
             set
             {
                 _CurrentPlayerName = value;
@@ -25,10 +22,7 @@ namespace DrinkMaster.ViewModels
         private Question _CurrentQuestion;
         public Question CurrentQuestion
         {
-            get
-            {
-                return _CurrentQuestion;
-            }
+            get => _CurrentQuestion;
             set
             {
                 _CurrentQuestion = value;
@@ -38,10 +32,7 @@ namespace DrinkMaster.ViewModels
         private int _Timer;
         public int Timer
         {
-            get
-            {
-                return _Timer;
-            }
+            get => _Timer;
             set
             {
                 _Timer = value;
@@ -81,7 +72,7 @@ namespace DrinkMaster.ViewModels
                 // If no more questions are left or 5 questions are asked, go to leaderboard!
                 if (Questions.Count == 0 || Count >= 5)
                 {
-                    navigation.PushAsync(new LeaderboardPage(game));
+                    _ = navigation.PushAsync(new LeaderboardPage(game));
                     return;
                 }
                 // Next question!
@@ -113,7 +104,7 @@ namespace DrinkMaster.ViewModels
                     }
                 }
 
-                navigation.PushAsync(new AnswerPage(CurrentQuestion.Content, CorrectAnswer, (bool)isCorrect));
+                _ = navigation.PushAsync(new AnswerPage(CurrentQuestion.Content, CorrectAnswer, (bool)isCorrect));
             });
 
             // Next question button command to prevent timer from starting when navigation is at the next page. TODO: Find a way to freeze the timer / restart on re entry of page!
@@ -162,11 +153,10 @@ namespace DrinkMaster.ViewModels
                 gameTimer.Start();
             }
         }
-        public void OnPropertyChanged([CallerMemberName] string name = null) =>
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-
-
-
+        public void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
     }
 }
 

@@ -19,8 +19,9 @@
 
         public bool IsSelected
         {
-            get { return _IsSelected; }
-            set { 
+            get => _IsSelected;
+            set
+            {
                 _IsSelected = value;
                 BorderColour = value ? Colors.White : Colors.Black;
             }
@@ -29,7 +30,7 @@
 
         public void AddQuestion(Question question)
         {
-            this.Questions.Add(question);
+            Questions.Add(question);
         }
     }
 }

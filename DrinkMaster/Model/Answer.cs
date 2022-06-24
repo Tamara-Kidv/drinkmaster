@@ -2,7 +2,7 @@
 {
     public class Answer
     {
-        public Answer(string Answer, Boolean IsCorrect)
+        public Answer(string Answer, bool IsCorrect)
         {
             Value = Answer;
             this.IsCorrect = IsCorrect;

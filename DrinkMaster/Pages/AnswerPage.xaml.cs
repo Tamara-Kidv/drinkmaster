@@ -1,4 +1,3 @@
-using DrinkMaster.Model;
 using DrinkMaster.ViewModels;
 
 namespace DrinkMaster.Pages;

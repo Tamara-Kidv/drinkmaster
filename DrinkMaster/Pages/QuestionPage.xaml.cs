@@ -4,11 +4,11 @@ namespace DrinkMaster.Pages;
 
 public partial class QuestionPage : ContentPage
 {
-	public QuestionPage(QuestionViewModel viewModel)
-	{
+    public QuestionPage(QuestionViewModel viewModel)
+    {
         BindingContext = viewModel;
         InitializeComponent();
-	}
+    }
 
     private async void TrueButtonOnClicked(object sender, EventArgs e)
     {

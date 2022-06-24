@@ -10,8 +10,8 @@ namespace DrinkMaster.Model
 
         public Game()
         {
-            this.Players = new ObservableCollection<Player>();
-            this.Categories = new List<Category>();
+            Players = new ObservableCollection<Player>();
+            Categories = new List<Category>();
         }
     }
 }
