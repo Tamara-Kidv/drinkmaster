@@ -60,7 +60,7 @@
             FontSize="24"
             HorizontalOptions="Center"/>
         <Button 
-            Text="Next Question"
+            Text="Volgende vraag"
             IsVisible="{Binding Timer, Converter={StaticResource TimerInvertedBoolConverter}}"
             FontSize="24"
             HorizontalOptions="Center"

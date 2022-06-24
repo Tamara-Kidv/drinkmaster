@@ -115,6 +115,8 @@ namespace DrinkMaster.ViewModels
 
                 navigation.PushAsync(new AnswerPage(CurrentQuestion.Content, CorrectAnswer, (bool)isCorrect));
             });
+
+            // Next question button command to prevent timer from starting when navigation is at the next page. TODO: Find a way to freeze the timer / restart on re entry of page!
             NextQuestionCommand = new Command(() =>
             {
                 NextQuestion();

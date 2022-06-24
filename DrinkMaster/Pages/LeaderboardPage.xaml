@@ -12,37 +12,28 @@
         Padding="30,0" 
         VerticalOptions="Center">
 
-        <!--<Grid ColumnDefinitions="*,400,*"
-          ColumnSpacing="5"
-          RowDefinitions="auto, *, auto"
-          RowSpacing="0"
-          Padding="10">
-            <Label Grid.Column="1" 
-               Grid.Row="0"
-               Text="Kies Categorieën"
-               VerticalOptions="Center" 
-               HorizontalOptions="Center"
-               FontSize="Header"/>
-            <CollectionView ItemsSource="{Binding LeaderBoard}"
-                        Grid.Column="1"
-                        Grid.Row="1">
-                <CollectionView.ItemTemplate
+        <!--for each answer:-->
+        <CollectionView ItemsSource="{Binding LeaderBoard}"
+                        HorizontalOptions="Center">
+            <CollectionView.ItemTemplate
                 x:DataType="model:Player">
-                    <DataTemplate x:DataType="model:Category">
+                <DataTemplate 
+                    x:DataType="model:Player">
+                    <HorizontalStackLayout>
+                        <Label 
+                            Margin="5"
+                        Text="{Binding Name}" 
+                        FontSize="21"
+                        HorizontalOptions="Center" />
+                        <Label
+                        Margin="5"
+                        Text="{Binding Score}"
+                        FontSize="21"
+                        HorizontalOptions="Center" />
+                    </HorizontalStackLayout>
 
-
-
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            <Button 
-            Grid.Row="4"
-            Grid.Column="1"
-            Text="Volgende"
-            WidthRequest="100"
-            FontAttributes="Bold"
-            HeightRequest="70"
-            Command="{Binding NextPageCommand}"/>
-        </Grid>-->
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
