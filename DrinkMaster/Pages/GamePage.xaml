@@ -5,7 +5,15 @@
              xmlns:model="clr-namespace:DrinkMaster.Model"
              xmlns:viewmodel="clr-namespace:DrinkMaster.ViewModels"
              x:DataType="viewmodel:GameViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="GamePage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:IntToBoolConverter x:Key="TimerToBoolConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <VerticalStackLayout
         Spacing="25" 
         Padding="30,0" 
@@ -22,6 +30,7 @@
             SemanticProperties.HeadingLevel="Level1"
             FontSize="18"
             HorizontalOptions="Center"/>
+
         <!--for each answer:-->
         <CollectionView ItemsSource="{Binding CurrentQuestion.Answers, Mode=TwoWay}"
                         HorizontalOptions="Center">
@@ -35,11 +44,16 @@
                         HeightRequest="50"
                         Margin="5"
                         HorizontalOptions="Center"
+                        IsEnabled="{Binding Timer, Converter={StaticResource TimerToBoolConverter},Source={RelativeSource AncestorType={x:Type viewmodel:GameViewModel}}}"
                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:GameViewModel}}, Path=AnswerCommand, Mode=TwoWay}" 
                         CommandParameter="{Binding IsCorrect, Mode=TwoWay}" />
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <Label 
+            Text="{Binding Timer}"
+            FontSize="24"
+            HorizontalOptions="Center"/>
 
     </VerticalStackLayout>
 </ContentPage>

@@ -2,6 +2,7 @@
 using DrinkMaster.Pages;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Timer = System.Timers.Timer;
 
 namespace DrinkMaster.ViewModels
 {
@@ -34,6 +35,20 @@ namespace DrinkMaster.ViewModels
                 OnPropertyChanged(nameof(CurrentQuestion));
             }
         }
+        private int _Timer;
+        public int Timer
+        {
+            get
+            {
+                return _Timer;
+            }
+            set
+            {
+                _Timer = value;
+                OnPropertyChanged(nameof(Timer));
+            }
+        }
+        public Timer gameTimer;
         private Stack<Question> Questions { get; set; }
         private int Count { get; set; }
         public Command AnswerCommand { get; }
@@ -45,12 +60,16 @@ namespace DrinkMaster.ViewModels
             int CurrentPlayerId = 0,
                 CurrentQuestionId = 0,
                 CurrentCategoryId = 0;
+            Timer = 30;
+            SetTimer();
             Questions = getRandomQuestions();
-            CurrentPlayerName = game.Players[CurrentPlayerId].Name; //TODO: players in volgorde
+            CurrentPlayerName = game.Players[CurrentPlayerId].Name;
             CurrentQuestion = game.Categories[CurrentCategoryId].Questions[CurrentQuestionId];
 
             void NextQuestion()
             {
+                Timer = 30;
+                SetTimer();
                 // Go to next player, and add count if all players have answered a question.
                 CurrentPlayerId++;
                 if (CurrentPlayerId >= game.Players.Count)
@@ -80,6 +99,20 @@ namespace DrinkMaster.ViewModels
                 {
                     game.Players[CurrentPlayerId].Score++;
                 }
+                Timer = 0;
+                gameTimer.Stop();
+                // Find correct answer
+                string CorrectAnswer = "error";
+                foreach (Answer answer in CurrentQuestion.Answers)
+                {
+                    if (answer.IsCorrect)
+                    {
+                        CorrectAnswer = answer.Value;
+                        break;
+                    }
+                }
+
+                navigation.PushAsync(new AnswerPage(CurrentQuestion.Content, CorrectAnswer, (bool)isCorrect));
                 NextQuestion();
             });
 
@@ -104,9 +137,29 @@ namespace DrinkMaster.ViewModels
                 return new Stack<Question>(randomQuestions);
 
             }
+            // Set timer voor 1 sec, en add +1 tot de timer 30 bereikt.
+            void SetTimer()
+            {
+                gameTimer = new(1000);
+                gameTimer.Elapsed += (sender, e) => HandleTimer();
+                gameTimer.Start();
+            }
+
+            void HandleTimer()
+            {
+                if (Timer <= 0)
+                {
+                    NextQuestion();
+                    return;
+                }
+                Timer--;
+                gameTimer.Start();
+            }
         }
         public void OnPropertyChanged([CallerMemberName] string name = null) =>
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+
+
 
     }
 }
