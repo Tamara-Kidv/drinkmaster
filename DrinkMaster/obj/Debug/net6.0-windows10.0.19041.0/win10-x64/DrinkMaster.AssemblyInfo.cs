@@ -11,6 +11,10 @@
 using System;
 using System.Reflection;
 
+[assembly: System.Reflection.AssemblyMetadataAttribute("Microsoft.Maui.ApplicationModel.AppInfo.PackageName", "9D7E0B03-0F73-4E4D-8534-F35118843EAA")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("Microsoft.Maui.ApplicationModel.AppInfo.PublisherName", "User Name")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("Microsoft.Maui.ApplicationModel.AppInfo.Name", "DrinkMaster")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("Microsoft.Maui.ApplicationModel.AppInfo.Version", "1.0.0.1")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("DrinkMaster")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

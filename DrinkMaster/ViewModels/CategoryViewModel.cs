@@ -53,6 +53,8 @@ public class CategoryViewModel : INotifyPropertyChanged
             await navigation.PushAsync(new GamePage(game));
         });
 
+
+
         // Toggle category selected
         AddCategoryCommand = new Command((name) =>
         {

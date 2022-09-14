@@ -30,6 +30,8 @@ namespace DrinkMaster.ViewModels
             }
         }
         private int _Timer;
+
+      
         public int Timer
         {
             get => _Timer;
@@ -38,7 +40,12 @@ namespace DrinkMaster.ViewModels
                 _Timer = value;
                 OnPropertyChanged(nameof(Timer));
             }
+            
+           
+
         }
+       
+
         public Timer gameTimer;
         private Stack<Question> Questions { get; set; }
         private int Count { get; set; }
@@ -54,9 +61,13 @@ namespace DrinkMaster.ViewModels
                 CurrentCategoryId = 0;
             Timer = 30;
             SetTimer();
+     
             Questions = getRandomQuestions();
             CurrentPlayerName = game.Players[CurrentPlayerId].Name;
             CurrentQuestion = game.Categories[CurrentCategoryId].Questions[CurrentQuestionId];
+
+       
+
 
             void NextQuestion()
             {
@@ -75,6 +86,7 @@ namespace DrinkMaster.ViewModels
                     _ = navigation.PushAsync(new LeaderboardPage(game));
                     return;
                 }
+               
                 // Next question!
                 Question currentQuestion = Questions.Pop();
 
@@ -142,6 +154,8 @@ namespace DrinkMaster.ViewModels
                 gameTimer.Start();
             }
 
+        
+
             void HandleTimer()
             {
                 if (Timer <= 0)
@@ -152,6 +166,7 @@ namespace DrinkMaster.ViewModels
                 Timer--;
                 gameTimer.Start();
             }
+
         }
         public void OnPropertyChanged([CallerMemberName] string name = null)
         {

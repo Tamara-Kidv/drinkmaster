@@ -56,6 +56,7 @@
         </CollectionView>
         <Label 
             Text="{Binding Timer}"
+            TextColor="Red"
             IsVisible="{Binding Timer, Converter={StaticResource TimerToBoolConverter}}"
             FontSize="24"
             HorizontalOptions="Center"/>

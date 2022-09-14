@@ -3,8 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DrinkMaster.Pages.StartPage">
 
-    <ScrollView>
-        <VerticalStackLayout 
+    <ScrollView
+        Background="{AppThemeBinding Light={StaticResource LightBackground}, 
+        Dark={StaticResource DarkBackground}}">
+
+        <VerticalStackLayout
             Spacing="25" 
             Padding="30,0" 
             VerticalOptions="Center">
