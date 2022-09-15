@@ -58,10 +58,14 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Label 
+        <Button
+            x:Name="ProgressButton" 
             Text="{Binding Timer}"
             IsVisible="{Binding Timer, Converter={StaticResource TimerToBoolConverter}}"
             FontSize="24"
+            HeightRequest="80"
+            WidthRequest="80"
+            CornerRadius="40"
             HorizontalOptions="Center"/>
         <Button 
             Text="Volgende vraag"
