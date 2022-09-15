@@ -1,4 +1,10 @@
-﻿obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\appiconfg.png
+﻿obj\Debug\net6.0-android\resizetizer\r\drawable\avatar1.jpg
+obj\Debug\net6.0-android\resizetizer\r\drawable\avatar2.jpg
+obj\Debug\net6.0-android\resizetizer\r\drawable\avatar3.jpg
+obj\Debug\net6.0-android\resizetizer\r\drawable\avatar4.jpg
+obj\Debug\net6.0-android\resizetizer\r\drawable\avatar5.jpg
+obj\Debug\net6.0-android\resizetizer\r\drawable\avatar6.jpg
+obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\appiconfg.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\dotnet_bot.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-hdpi\undraw_beer.png
 obj\Debug\net6.0-android\resizetizer\r\drawable-mdpi\appiconfg.png

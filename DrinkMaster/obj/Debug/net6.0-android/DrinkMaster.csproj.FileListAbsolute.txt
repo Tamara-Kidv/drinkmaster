@@ -2016,3 +2016,9 @@ C:\xampp\htdocs\GitHub\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\android\
 C:\xampp\htdocs\GitHub\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\app_shared_libraries\armeabi-v7a\libxamarin-app.so
 C:\xampp\htdocs\GitHub\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\app_shared_libraries\arm64-v8a\libxamarin-app.so
 C:\xampp\htdocs\GitHub\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\app_shared_libraries\x86\libxamarin-app.so
+C:\xampp\htdocs\GitHub\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\resizetizer\r\drawable\avatar1.jpg
+C:\xampp\htdocs\GitHub\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\resizetizer\r\drawable\avatar2.jpg
+C:\xampp\htdocs\GitHub\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\resizetizer\r\drawable\avatar3.jpg
+C:\xampp\htdocs\GitHub\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\resizetizer\r\drawable\avatar4.jpg
+C:\xampp\htdocs\GitHub\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\resizetizer\r\drawable\avatar5.jpg
+C:\xampp\htdocs\GitHub\drinkmaster\DrinkMaster\obj\Debug\net6.0-android\resizetizer\r\drawable\avatar6.jpg
