@@ -10,6 +10,7 @@ namespace DrinkMaster.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private string _CurrentPlayerName;
+        
         public string CurrentPlayerName
         {
             get => _CurrentPlayerName;
@@ -19,6 +20,18 @@ namespace DrinkMaster.ViewModels
                 OnPropertyChanged(nameof(CurrentPlayerName));
             }
         }
+        
+        private string _CurrentPlayerAvatar;
+        public string CurrentPlayerAvatar
+        {
+            get => _CurrentPlayerAvatar;
+            set
+            {
+                _CurrentPlayerAvatar = value;
+                OnPropertyChanged(nameof(CurrentPlayerAvatar));
+            }
+        }
+
         private Question _CurrentQuestion;
         public Question CurrentQuestion
         {
@@ -57,6 +70,7 @@ namespace DrinkMaster.ViewModels
             Questions = getRandomQuestions();
             CurrentPlayerName = game.Players[CurrentPlayerId].Name;
             CurrentQuestion = game.Categories[CurrentCategoryId].Questions[CurrentQuestionId];
+            CurrentPlayerAvatar = game.Players[CurrentPlayerId].Avatar;
 
             void NextQuestion()
             {
@@ -81,6 +95,7 @@ namespace DrinkMaster.ViewModels
                 // Set values to View.
                 CurrentPlayerName = game.Players[CurrentPlayerId].Name;
                 CurrentQuestion = currentQuestion;
+                CurrentPlayerAvatar = game.Players[CurrentPlayerId].Avatar;
 
             }
 

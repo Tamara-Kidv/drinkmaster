@@ -22,12 +22,16 @@
         Spacing="25" 
         Padding="30,0" 
         VerticalOptions="Center">
-
+        <HorizontalStackLayout
+            HorizontalOptions="Center">
+            <Image Source="{Binding CurrentPlayerAvatar}" HeightRequest="50" WidthRequest="50"/>
         <Label
             Text="{Binding CurrentPlayerName, Mode=TwoWay}"
             SemanticProperties.HeadingLevel="Level1"
             FontSize="28"
             HorizontalOptions="Center"/>
+        </HorizontalStackLayout>
+        
 
         <Label
             Text="{Binding CurrentQuestion.Content, Mode=TwoWay }"

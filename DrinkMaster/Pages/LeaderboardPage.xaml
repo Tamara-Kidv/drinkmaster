@@ -20,6 +20,7 @@
                 <DataTemplate 
                     x:DataType="model:Player">
                     <HorizontalStackLayout>
+                        <Image Source="{Binding Avatar}" HeightRequest="50" WidthRequest="50"/>
                         <Label 
                             Margin="5"
                         Text="{Binding Name}" 

@@ -11,30 +11,49 @@
         <viewmodel:PlayerInputViewModel/>
     </ContentPage.BindingContext>
 
-    <AbsoluteLayout>
+    <AbsoluteLayout Margin="10">
         <CollectionView ItemsSource="{Binding Players}" 
-                        AbsoluteLayout.LayoutBounds="0.5, 0, 250, 500"
+                        AbsoluteLayout.LayoutBounds="0.5, 0, 350, 500"
                         AbsoluteLayout.LayoutFlags="PositionProportional">
             <CollectionView.ItemTemplate 
                                x:DataType="model:Player">
                 <DataTemplate
                     x:DataType="model:Player">
-                    <Grid Padding="10">
+                    <Grid Padding="0">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="50" />
+                            <RowDefinition Height="70" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
-                        <Label WidthRequest="250"
-                               Text="{Binding Name}" />
 
-                        <Button WidthRequest="50"
-                                x:Name="remPlayerBtn"
-                                FontAttributes="Bold" Text="X"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:PlayerInputViewModel}}, Path=DelPlayerCommand}"
-                                CommandParameter="{Binding Name}" />
+                        <Frame Padding="0" Margin="0,5,0,5">
+                            <StackLayout Padding="0" Margin="5,0,5,0" Spacing="10" Orientation="Horizontal">
+                                <Frame Padding="0" HeightRequest="50" WidthRequest="50" CornerRadius="25">
+                                    <Image Source="{Binding Avatar}" 
+                                           HeightRequest="50" WidthRequest="50"/>
+                                </Frame>
+                                <StackLayout VerticalOptions="Center">
+                                    <Label
+                                        WidthRequest="220"
+                                        Text="{Binding Name}"
+                                        FontSize="18"
+                                        FontAttributes="None"/>
+                                </StackLayout>
+                                <StackLayout Margin="0,10,0,10">
+                                     <Button WidthRequest="50"
+                                        x:Name="remPlayerBtn"
+                                        FontAttributes="Bold" Text="X"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:PlayerInputViewModel}}, Path=DelPlayerCommand}"
+                                        CommandParameter="{Binding Name}" />
+                                    </StackLayout>
+                            </StackLayout>
+                            
+                        </Frame>
+                        
+
+                        
                     </Grid>
 
                 </DataTemplate>
@@ -55,6 +74,37 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>-->
+        <HorizontalStackLayout
+            HorizontalOptions="Center"
+            AbsoluteLayout.LayoutBounds="0.5, 0.8, 250, 70"
+            AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame Padding="0" HeightRequest="50" WidthRequest="50">
+                <Image Source="{Binding avatarOne}"/>
+            </Frame>
+            <Frame Padding="0" HeightRequest="50" WidthRequest="50">
+                <Image Source="{Binding avatarTwo}"/>
+            </Frame>
+            <Frame Padding="0" HeightRequest="50" WidthRequest="50">
+                <Image Source="{Binding avatarThree}"/>
+            </Frame>
+            <Frame Padding="0" HeightRequest="50" WidthRequest="50">
+                <Image Source="{Binding avatarFour}"/>
+            </Frame>
+            <Frame Padding="0" HeightRequest="50" WidthRequest="50">
+                <Image Source="{Binding avatarFive}"/>
+            </Frame>
+            <Frame Padding="0" HeightRequest="50" WidthRequest="50">
+                <Image Source="{Binding avatarSix}"/>
+            </Frame>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center" 
+                AbsoluteLayout.LayoutBounds="0.5, 0.9, 250, 40"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Entry x:Name="PlayerAvatar"
+                   WidthRequest="250"
+                   Placeholder="Enter avatar"
+                   Text="{Binding PlayerAvatar, Mode=TwoWay}"/>
+        </HorizontalStackLayout>
         <HorizontalStackLayout HorizontalOptions="Center" 
                 AbsoluteLayout.LayoutBounds="0.5, 1, 250, 40"
                 AbsoluteLayout.LayoutFlags="PositionProportional">
@@ -63,6 +113,7 @@
                    Placeholder="Enter name"
                    Text="{Binding PlayerName, Mode=TwoWay}"
             />
+            
             <Button x:Name="AddBtn"  WidthRequest="50"
                     FontAttributes="Bold"
                     Text="+"
@@ -72,8 +123,6 @@
                     Text="->"
                     Command="{Binding NextPageCommand}"
                     />
-
-
         </HorizontalStackLayout>
 
     </AbsoluteLayout>

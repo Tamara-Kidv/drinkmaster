@@ -11,6 +11,14 @@ public class PlayerInputViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
     private string _PlayerName;
+    private string _PlayerAvatar;
+    public string avatarOne { get; set; } = "avatar1.jpg";
+    public string avatarTwo { get; set; } = "avatar2.jpg";
+    public string avatarThree { get; set; } = "avatar3.jpg";
+    public string avatarFour { get; set; } = "avatar4.jpg";
+    public string avatarFive { get; set; } = "avatar5.jpg";
+    public string avatarSix { get; set; } = "avatar6.jpg";
+
     public string PlayerName
     {
         get => _PlayerName;
@@ -21,12 +29,24 @@ public class PlayerInputViewModel : INotifyPropertyChanged
         }
     }
 
+    public string PlayerAvatar
+    {
+        get => _PlayerAvatar;
+        set
+        {
+            _PlayerAvatar = value;
+        }
+    }
+
+
     public ICommand AddPlayerCommand { get; private set; }
     public ICommand DelPlayerCommand { get; private set; }
     public ICommand NextPageCommand { get; private set; }
+    
 
     public PlayerInputViewModel()
     {
+
         INavigation navigation = App.Current.MainPage.Navigation;
 
         // Add player to game
@@ -36,8 +56,9 @@ public class PlayerInputViewModel : INotifyPropertyChanged
             {
                 return;
             }
-            Players.Add(new Player(PlayerName));
+            Players.Add(new Player(PlayerName, PlayerAvatar));
             PlayerName = "";
+            PlayerAvatar = "";
 
         });
         // Remove Player from the game
