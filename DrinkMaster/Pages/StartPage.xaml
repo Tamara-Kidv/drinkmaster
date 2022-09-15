@@ -18,12 +18,14 @@
             <Label 
                 Text="Drinkmaster"
                 SemanticProperties.HeadingLevel="Level1"
+                TextColor="{AppThemeBinding Light={StaticResource LabelText}, Dark={StaticResource LabelTextDark}}"
                 FontSize="32"
                 HorizontalOptions="Center" />
 
             <Label 
                 Text="Nu met added groenteshot support. You're welcome."
                 SemanticProperties.HeadingLevel="Level2"
+                TextColor="{AppThemeBinding Light={StaticResource LabelText}, Dark={StaticResource LabelTextDark}}"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
                 HorizontalOptions="Center" />

@@ -5,10 +5,48 @@
              x:Class="DrinkMaster.App">
     <Application.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/Colors.xaml" />
-                <ResourceDictionary Source="Resources/Styles.xaml" />
-            </ResourceDictionary.MergedDictionaries>
+            <Color x:Key="Primary">#512BD4</Color>
+            <Color x:Key="PrimaryDark">#2B0B98</Color>
+     
+            <Color x:Key="LightBackground">#FAF9F8</Color>
+            <Color x:Key="DarkBackground">Black</Color>
+
+            <Color x:Key="LabelText">#1f1f1f</Color>
+            <Color x:Key="LabelTextDark">White</Color>
+
+            <Style ApplyToDerivedTypes="True" TargetType="Page">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"/>
+            </Style>
+
+            <Style ApplyToDerivedTypes="True" TargetType="NavigationPage">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"/>
+                <Setter Property="BarBackgroundColor" Value="{StaticResource PrimaryDark}"/>
+                <Setter Property="BarTextColor" Value="White"/>
+            </Style>
+
+
+
+
+
+            <Style x:Key="LargeLabelStyle"
+               TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LabelText}, Dark={StaticResource LabelTextDark}}"/>
+                <Setter Property="FontSize"
+                    Value="30" />
+            </Style>
+            <Style x:Key="MediumLabelStyle"
+               TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LabelText}, Dark={StaticResource LabelTextDark}}"/>
+                <Setter Property="FontSize"
+                    Value="25" />
+            </Style>
+
+            <Style x:Key="SmallLabelStyle"
+               TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LabelText}, Dark={StaticResource LabelTextDark}}"/>
+                <Setter Property="FontSize"
+                    Value="15" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
