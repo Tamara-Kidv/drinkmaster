@@ -59,7 +59,7 @@
                 AbsoluteLayout.LayoutBounds="0.5, 1, 250, 40"
                 AbsoluteLayout.LayoutFlags="PositionProportional">
             <Entry x:Name="PlayerInput"
-                   WidthRequest="250"
+                   WidthRequest="150"
                    Placeholder="Enter name"
                    Text="{Binding PlayerName, Mode=TwoWay}"
             />

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:DrinkMaster.Model"
              x:Class="DrinkMaster.Pages.StartPage">
-
-    <ScrollView
-        Background="{AppThemeBinding Light={StaticResource LightBackground}, 
-        Dark={StaticResource DarkBackground}}">
+             
+    <ScrollView>
+    
+    
 
         <VerticalStackLayout
             Spacing="25" 
@@ -18,15 +19,17 @@
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
-            <Label 
+            <Label
                 Text="Drinkmaster"
                 SemanticProperties.HeadingLevel="Level1"
+                TextColor="{AppThemeBinding Light={StaticResource LabelText}, Dark={StaticResource LabelTextDark}}"
                 FontSize="32"
                 HorizontalOptions="Center" />
 
             <Label 
                 Text="Nu met added groenteshot support. You're welcome."
                 SemanticProperties.HeadingLevel="Level2"
+                TextColor="{AppThemeBinding Light={StaticResource LabelText}, Dark={StaticResource LabelTextDark}}"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
                 HorizontalOptions="Center" />

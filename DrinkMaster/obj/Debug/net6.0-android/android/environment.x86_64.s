@@ -3804,7 +3804,11 @@ application_config:
 
 	.type	.L.autostr.8, @object
 .L.autostr.8:
+<<<<<<< Updated upstream
 	.asciz	"1cbb58d5-fb61-4d53-b65f-34beabfe641d"
+=======
+	.asciz	"d3dff40a-3ec0-4ff5-a6a8-b015ee838012"
+>>>>>>> Stashed changes
 	.size	.L.autostr.8, 37
 
 	.type	.L.autostr.9, @object
