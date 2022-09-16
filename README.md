@@ -24,7 +24,7 @@ https://dotnet.microsoft.com/en-us/learn/maui/first-app-tutorial/install
 
 Om de debug - versie te runnen, druk na het openen van dit project boven op Run > En kies hier voor een platform naar keuze.
 
-De app is gemaakt voor telefoons, maar in de ontwikkel omgeving is het aanbevolen om de app te draaien als Windows app, omdat dit hetzelfde moet werken, en lichter is op de computer hardware.
+De app is gemaakt voor telefoons, maar in de ontwikkel omgeving is het aanbevolen om de app te draaien als android emulator. Hierdoor kan word de kleurenthema aangepast wanneer de darkmode in de emulator word gewijzigt 
 
 ## Command line
 
