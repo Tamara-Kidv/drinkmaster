@@ -102,7 +102,7 @@
                 AbsoluteLayout.LayoutFlags="PositionProportional">
             <Entry x:Name="PlayerAvatar"
                    WidthRequest="250"
-                   Placeholder="Enter avatar"
+                   Placeholder="avatar1.jpg t/m avatar6.jpg"
                    Text="{Binding PlayerAvatar, Mode=TwoWay}"/>
         </HorizontalStackLayout>
         <HorizontalStackLayout HorizontalOptions="Center" 

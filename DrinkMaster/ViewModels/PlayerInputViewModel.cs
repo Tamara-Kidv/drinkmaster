@@ -35,6 +35,7 @@ public class PlayerInputViewModel : INotifyPropertyChanged
         set
         {
             _PlayerAvatar = value;
+            OnPropertyChanged(nameof(PlayerAvatar));
         }
     }
 
@@ -46,7 +47,7 @@ public class PlayerInputViewModel : INotifyPropertyChanged
 
     public PlayerInputViewModel()
     {
-
+        
         INavigation navigation = App.Current.MainPage.Navigation;
 
         // Add player to game
