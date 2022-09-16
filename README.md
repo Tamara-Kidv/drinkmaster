@@ -24,7 +24,9 @@ https://dotnet.microsoft.com/en-us/learn/maui/first-app-tutorial/install
 
 Om de debug - versie te runnen, druk na het openen van dit project boven op Run > En kies hier voor een platform naar keuze.
 
-De app is gemaakt voor telefoons, maar in de ontwikkel omgeving is het aanbevolen om de app te draaien als android emulator. Hierdoor kan word de kleurenthema aangepast wanneer de darkmode in de emulator word gewijzigt 
+De app is gemaakt voor telefoons, maar in de ontwikkel omgeving is het aanbevolen om de app te draaien als android emulator. Hierdoor kan word de kleurenthema aangepast wanneer de darkmode in de emulator word gewijzigt.
+
+Voor het selecteren van de avatar voert u de naam van het plaatje in. avatar1.jpg t/m avatar6.jpg is mogelijk.
 
 ## Command line
 
